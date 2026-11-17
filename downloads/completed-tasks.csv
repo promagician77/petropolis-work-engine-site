@@ -1,0 +1,329 @@
+task_id,type,title,pets,where,completed_by,due,started,finished,minutes,outcome,late_minutes
+chk:open-lights,Checklist,"Lights, HVAC and cameras on",,Opening,Jonah,6:30 AM,6:00 AM,6:04 AM,4,Done,0
+chk:open-log,Checklist,Read the overnight log and incident board,,Opening,Maya,6:30 AM,6:00 AM,6:06 AM,6,Done,0
+chk:open-laundry,Checklist,Start the first laundry load,,Opening,Jonah,6:45 AM,6:04 AM,6:08 AM,4,Done,0
+chk:open-yards,Checklist,"Walk every yard: gates, fences, hazards",,Opening,Maya,6:50 AM,6:06 AM,6:13 AM,7,Done,0
+potty:gs_res_10401:390,Potty walk,Potty walk: Biscuit,Biscuit,A1,Jonah,6:30 AM,6:10 AM,6:15 AM,5,Both,0
+potty:gs_res_10402:390,Potty walk,Potty walk: Luna,Luna,A2,Maya,6:30 AM,6:13 AM,6:20 AM,7,Both,0
+potty:gs_res_10404:390,Potty walk,Potty walk: Pepper,Pepper,A3,Jonah,6:30 AM,6:15 AM,6:20 AM,5,Both,0
+potty:gs_res_10406:390,Potty walk,Potty walk: Rosie,Rosie,A4,Jonah,6:30 AM,6:20 AM,6:27 AM,7,Both,0
+potty:gs_res_10408:390,Potty walk,Potty walk: Daisy,Daisy,A5,Maya,6:30 AM,6:20 AM,6:25 AM,5,Both,0
+potty:gs_res_10410:390,Potty walk,Potty walk: Hazel,Hazel,A6,Maya,6:30 AM,6:25 AM,6:31 AM,6,Both,0
+potty:gs_res_10413:390,Potty walk,Potty walk: Moose,Moose,A7,Jonah,6:30 AM,6:27 AM,6:33 AM,6,Both,0
+potty:gs_res_10414:390,Potty walk,Potty walk: Olive,Olive,A8,Sam,6:30 AM,6:30 AM,6:36 AM,6,Both,0
+potty:gs_res_10416:390,Potty walk,Potty walk: Murphy,Murphy,A9,Maya,6:30 AM,6:31 AM,6:38 AM,7,Both,1
+potty:gs_res_10417:390,Potty walk,Potty walk: Juniper,Juniper,A10,Jonah,6:30 AM,6:33 AM,6:39 AM,6,Both,3
+potty:gs_res_10419:390,Potty walk,Potty walk: Maple,Maple,A11,Sam,6:30 AM,6:36 AM,6:43 AM,7,Both,6
+potty:gs_res_10423:390,Potty walk,Potty walk: Nala,Nala,A13,Maya,6:30 AM,6:38 AM,6:44 AM,6,Both,8
+potty:gs_res_10422:390,Potty walk,Potty walk: Otis,Otis,A12,Jonah,6:30 AM,6:39 AM,6:46 AM,7,Both,9
+potty:gs_res_10424:390,Potty walk,Potty walk: Beau,Beau,A14,Sam,6:30 AM,6:43 AM,6:50 AM,7,Both,13
+potty:gs_res_10425:405,Potty walk,Potty walk: Poppy,Poppy,B1,Maya,6:45 AM,6:44 AM,6:50 AM,6,Both,0
+potty:gs_res_10426:405,Potty walk,Potty walk: Ranger,Ranger,B2,Jonah,6:45 AM,6:46 AM,6:51 AM,5,Both,1
+feed:A:breakfast:420,Feeding,Breakfast: Row A (14 dogs),Biscuit; Luna; Pepper; Rosie; Daisy; Hazel; Moose; Olive; Murphy; Juniper; Maple; Otis; Nala; Beau,Row A,Maya,7:00 AM,6:50 AM,7:20 AM,30,All ate,0
+potty:gs_res_10427:405,Potty walk,Potty walk: Winnie,Winnie,B3,Sam,6:45 AM,6:50 AM,6:57 AM,7,Both,5
+potty:gs_res_10428:405,Potty walk,Potty walk: Koda,Koda,B4,Jonah,6:45 AM,6:51 AM,6:56 AM,5,Both,6
+feed:B:breakfast:420,Feeding,Breakfast: Row B (4 dogs),Poppy; Ranger; Winnie; Koda,Row B,Jonah,7:00 AM,6:56 AM,7:06 AM,10,All ate,0
+feed:C:breakfast:420,Feeding,Breakfast: Row C (10 dogs),Bruno; Milo; Tucker; Bear; Rocco; Willow; Penny; Gus; Diesel; Clover,Row C,Sam,7:00 AM,6:57 AM,7:18 AM,21,Bruno did not eat,0
+feed:K:breakfast:420,Feeding,Breakfast: Cat condos (5 cats),Mochi; Pickles; Dot; Kiwi; Bean,Cat condos,Priya,7:00 AM,7:00 AM,7:12 AM,12,All ate,0
+water:A:420,Water check,Water check: Row A,,Row A,Jonah,7:00 AM,7:06 AM,7:11 AM,5,Done,6
+water:B:420,Water check,Water check: Row B,,Row B,Jonah,7:00 AM,7:11 AM,7:17 AM,6,Done,11
+water:C:420,Water check,Water check: Row C,,Row C,Priya,7:00 AM,7:12 AM,7:18 AM,6,Done,12
+potty:gs_res_10403:420,Potty walk,Potty walk: Bruno,Bruno,C1,Jonah,7:00 AM,7:17 AM,7:24 AM,7,Both,17
+water:K:420,Water check,Water check: Cat condos,,Cat condos,Priya,7:00 AM,7:18 AM,7:24 AM,6,Done,18
+potty:gs_res_10405:420,Potty walk,Potty walk: Milo,Milo,C2,Sam,7:00 AM,7:18 AM,7:25 AM,7,Both,18
+chk:open-lobby,Checklist,"Lobby ready: lights, sign-in tablet, spare leashes",,Opening,Maya,6:55 AM,7:20 AM,7:24 AM,4,Done,25
+potty:gs_res_10407:420,Potty walk,Potty walk: Tucker,Tucker,C3,Jonah,7:00 AM,7:24 AM,7:31 AM,7,Both,24
+lobby:in:gs_res_10460,Lobby run,Check-in: bring Chief from the lobby to Small Yard,Chief,Lobby,Maya,7:25 AM,7:24 AM,7:29 AM,5,Done,0
+potty:gs_res_10409:420,Potty walk,Potty walk: Bear,Bear,C4,Sam,7:00 AM,7:25 AM,7:31 AM,6,Both,25
+lobby:in:gs_res_10448,Lobby run,Check-in: bring Lily from the lobby to Small Yard,Lily,Lobby,Maya,7:32 AM,7:29 AM,7:35 AM,6,Done,0
+meds:gs_res_10404:0:480,Meds,Carprofen 75 mg for Pepper,Pepper,A3,Priya,8:00 AM,7:30 AM,7:34 AM,4,Given,0
+potty:gs_res_10411:420,Potty walk,Potty walk: Rocco,Rocco,C5,Sam,7:00 AM,7:31 AM,7:37 AM,6,Both,31
+potty:gs_res_10412:420,Potty walk,Potty walk: Willow,Willow,C6,Jonah,7:00 AM,7:31 AM,7:38 AM,7,Both,31
+meds:gs_res_10407:0:480,Meds,Thyroid (levothyroxine) 0.5 mg for Tucker,Tucker,C3,Priya,8:00 AM,7:34 AM,7:38 AM,4,Given,0
+meds:gs_res_10413:0:480,Meds,Thyroid (levothyroxine) 0.5 mg for Moose,Moose,A7,Maya,8:00 AM,7:35 AM,7:39 AM,4,Given,0
+potty:gs_res_10415:420,Potty walk,Potty walk: Penny,Penny,C7,Sam,7:00 AM,7:37 AM,7:43 AM,6,Both,37
+meds:gs_res_10416:0:480,Meds,Fish oil for Murphy,Murphy,A9,Priya,8:00 AM,7:38 AM,7:43 AM,5,Given,0
+potty:gs_res_10418:420,Potty walk,Potty walk: Gus,Gus,C8,Jonah,7:00 AM,7:38 AM,7:45 AM,7,Both,38
+meds:gs_res_10421:0:480,Meds,Apoquel 16 mg for Clover,Clover,C10,Maya,8:00 AM,7:39 AM,7:43 AM,4,Given,0
+potty:gs_res_10420:420,Potty walk,Potty walk: Diesel,Diesel,C9,Sam,7:00 AM,7:43 AM,7:49 AM,6,Both,43
+meds:gs_res_10425:0:480,Meds,Carprofen 75 mg for Poppy,Poppy,B1,Priya,8:00 AM,7:43 AM,7:47 AM,4,Given,0
+meds:gs_res_10428:0:480,Meds,Thyroid (levothyroxine) 0.5 mg for Koda,Koda,B4,Maya,8:00 AM,7:43 AM,7:48 AM,5,Given,0
+potty:gs_res_10421:420,Potty walk,Potty walk: Clover,Clover,C10,Jonah,7:00 AM,7:45 AM,7:51 AM,6,Both,45
+meds:gs_res_10436:0:480,Meds,Methimazole 2.5 mg for Pickles,Pickles,K2,Priya,8:00 AM,7:47 AM,7:52 AM,5,Given,0
+lobby:in:gs_res_10445,Lobby run,Check-in: bring Rufus from the lobby to Puppy Yard,Rufus,Lobby,Maya,7:35 AM,7:48 AM,7:53 AM,5,Done,13
+lobby:in:gs_res_10444,Lobby run,Check-in: bring Ivy from the lobby to Big Yard,Ivy,Lobby,Sam,7:29 AM,7:49 AM,7:53 AM,4,Done,20
+water:Big Yard:480,Water check,Water check: Big Yard,,Big Yard,Jonah,8:00 AM,7:51 AM,7:54 AM,3,Done,0
+water:Puppy Yard:480,Water check,Water check: Puppy Yard,,Puppy Yard,Priya,8:00 AM,7:52 AM,7:55 AM,3,Done,0
+lobby:in:gs_res_10452,Lobby run,Check-in: bring Pearl from the lobby to Big Yard,Pearl,Lobby,Sam,7:38 AM,7:53 AM,7:59 AM,6,Done,15
+lobby:in:gs_res_10442,Lobby run,Check-in: bring Lola from the lobby to Small Yard,Lola,Lobby,Maya,7:50 AM,7:53 AM,7:59 AM,6,Done,3
+water:Small Yard:480,Water check,Water check: Small Yard,,Small Yard,Jonah,8:00 AM,7:54 AM,7:57 AM,3,Done,0
+lobby:in:gs_res_10429,Lobby run,Check-in: bring Sadie from the lobby to B5,Sadie,Lobby,Sam,7:50 AM,7:59 AM,8:03 AM,4,Done,9
+lobby:in:gs_res_10440,Lobby run,Check-in: bring Stella from the lobby to Big Yard,Stella,Lobby,Leo,7:53 AM,8:00 AM,8:05 AM,5,Done,7
+feed:reoffer:Bruno:438,Feeding,Re-offer breakfast: Bruno,Bruno,Row C,Sam,8:18 AM,8:03 AM,8:06 AM,3,Done,0
+lobby:in:gs_res_10441,Lobby run,Check-in: bring Cooper from the lobby to Puppy Yard,Cooper,Lobby,Sam,8:18 AM,8:08 AM,8:13 AM,5,Done,0
+lobby:in:gs_res_10455,Lobby run,Check-in: bring Opal from the lobby to Small Yard,Opal,Lobby,Leo,8:18 AM,8:08 AM,8:14 AM,6,Done,0
+lobby:in:gs_res_10430,Lobby run,Check-in: bring Finn from the lobby to B6,Finn,Lobby,Maya,8:20 AM,8:10 AM,8:15 AM,5,Done,0
+lobby:in:gs_res_10457,Lobby run,Check-in: bring Sage from the lobby to Puppy Yard,Sage,Lobby,Sam,8:20 AM,8:13 AM,8:18 AM,5,Done,0
+lobby:in:gs_res_10450,Lobby run,Check-in: bring Honey from the lobby to Big Yard,Honey,Lobby,Sam,8:28 AM,8:18 AM,8:22 AM,4,Done,0
+lobby:in:gs_res_10456,Lobby run,Check-in: bring Riley from the lobby to Small Yard,Riley,Lobby,Sam,8:37 AM,8:27 AM,8:31 AM,4,Done,0
+lobby:in:gs_res_10443,Lobby run,Check-in: bring Jasper from the lobby to Big Yard,Jasper,Lobby,Leo,8:38 AM,8:28 AM,8:34 AM,6,Done,0
+lobby:in:gs_res_10449,Lobby run,Check-in: bring Toby from the lobby to Puppy Yard,Toby,Lobby,Maya,8:38 AM,8:28 AM,8:33 AM,5,Done,0
+water:A:540,Water check,Water check: Row A,,Row A,Priya,9:00 AM,8:30 AM,8:34 AM,4,Done,0
+water:B:540,Water check,Water check: Row B,,Row B,Jonah,9:00 AM,8:30 AM,8:35 AM,5,Done,0
+lobby:in:gs_res_10453,Lobby run,Check-in: bring Bandit from the lobby to Small Yard,Bandit,Lobby,Sam,8:38 AM,8:31 AM,8:37 AM,6,Done,0
+lobby:in:gs_res_10459,Lobby run,Check-in: bring Nova from the lobby to Small Yard,Nova,Lobby,Maya,8:39 AM,8:33 AM,8:38 AM,5,Done,0
+chk:rt-lobby-09:00,Checklist,Lobby floor and door glass,,Routine cleaning,Leo,9:00 AM,8:34 AM,8:44 AM,10,Done,0
+water:C:540,Water check,Water check: Row C,,Row C,Priya,9:00 AM,8:34 AM,8:39 AM,5,Done,0
+lobby:in:gs_res_10451,Lobby run,Check-in: bring Archie from the lobby to Big Yard,Archie,Lobby,Sam,8:47 AM,8:37 AM,8:42 AM,5,Done,0
+water:K:540,Water check,Water check: Cat condos,,Cat condos,Priya,9:00 AM,8:39 AM,8:44 AM,5,Done,0
+lobby:in:gs_res_10447,Lobby run,Check-in: bring Scout from the lobby to Small Yard,Scout,Lobby,Maya,8:49 AM,8:39 AM,8:44 AM,5,Done,0
+water:Big Yard:540,Water check,Water check: Big Yard,,Big Yard,Jonah,9:00 AM,8:40 AM,8:43 AM,3,Done,0
+water:Puppy Yard:540,Water check,Water check: Puppy Yard,,Puppy Yard,Sam,9:00 AM,8:42 AM,8:45 AM,3,Done,0
+water:Small Yard:540,Water check,Water check: Small Yard,,Small Yard,Jonah,9:00 AM,8:43 AM,8:46 AM,3,Done,0
+lobby:in:gs_res_10454,Lobby run,Check-in: bring Harley from the lobby to Big Yard,Harley,Lobby,Leo,8:54 AM,8:44 AM,8:49 AM,5,Done,0
+lobby:in:gs_res_10431,Lobby run,Check-in: bring Ruby from the lobby to B7,Ruby,Lobby,Sam,8:55 AM,8:45 AM,8:50 AM,5,Done,0
+lobby:in:gs_res_10446,Lobby run,Check-in: bring Coco from the lobby to Puppy Yard,Coco,Lobby,Maya,8:58 AM,8:48 AM,8:52 AM,4,Done,0
+lobby:in:gs_res_10461,Lobby run,Check-in: bring Theo from the lobby to Big Yard,Theo,Lobby,Leo,8:55 AM,8:49 AM,8:55 AM,6,Done,0
+lobby:in:gs_res_10458,Lobby run,Check-in: bring Waffles from the lobby to Small Yard,Waffles,Lobby,Sam,9:05 AM,8:55 AM,9:01 AM,6,Done,0
+clean:spot:A:600,Cleaning,Spot clean: Row A,,Row A,Jonah,10:00 AM,9:00 AM,9:22 AM,22,Done,0
+clean:spot:B:600,Cleaning,Spot clean: Row B,,Row B,Leo,10:00 AM,9:00 AM,9:20 AM,20,Done,0
+clean:spot:C:600,Cleaning,Spot clean: Row C,,Row C,Maya,10:00 AM,9:00 AM,9:21 AM,21,Done,0
+play:gs_res_10401:0,Play,Play session: Biscuit,Biscuit,Small Yard,Priya,12:00 PM,9:00 AM,9:17 AM,17,Done,0
+play:gs_res_10402:0,Play,Play session: Luna,Luna,Small Yard,Priya,12:00 PM,9:17 AM,9:31 AM,14,Done,0
+chk:rt-scoop-Big Yard-10:00,Checklist,Scoop and hose Big Yard,,Big Yard,Leo,10:00 AM,9:30 AM,9:39 AM,9,Done,0
+chk:rt-scoop-Small Yard-10:00,Checklist,Scoop and hose Small Yard,,Small Yard,Maya,10:00 AM,9:30 AM,9:38 AM,8,Done,0
+chk:rt-scoop-Puppy Yard-10:00,Checklist,Scoop and hose Puppy Yard,,Puppy Yard,Jonah,10:00 AM,9:30 AM,9:39 AM,9,Done,0
+lobby:in:gs_res_10432,Lobby run,Check-in: bring Duke from the lobby to B8,Duke,Lobby,Sam,9:40 AM,9:30 AM,9:36 AM,6,Done,0
+play:gs_res_10404:0,Play,Play session: Pepper,Pepper,Small Yard,Priya,12:00 PM,9:31 AM,9:45 AM,14,Done,0
+water:Big Yard:600,Water check,Water check: Big Yard,,Big Yard,Sam,10:00 AM,9:40 AM,9:43 AM,3,Done,0
+water:Small Yard:600,Water check,Water check: Small Yard,,Small Yard,Leo,10:00 AM,9:40 AM,9:43 AM,3,Done,0
+water:Puppy Yard:600,Water check,Water check: Puppy Yard,,Puppy Yard,Jonah,10:00 AM,9:40 AM,9:43 AM,3,Done,0
+play:gs_res_10406:0,Play,Play session: Rosie,Rosie,Small Yard,Priya,12:00 PM,9:45 AM,10:03 AM,18,Done,0
+chk:rt-laundry-10:30,Checklist,Swap laundry,,Routine cleaning,Jonah,10:30 AM,10:00 AM,10:07 AM,7,Done,0
+lobby:out:gs_res_10422,Lobby run,Check-out: bring Otis to the lobby,Otis,Lobby,Sam,10:05 AM,10:00 AM,10:05 AM,5,Done,0
+play:gs_res_10413:0,Play,Play session: Moose,Moose,Small Yard,Priya,12:00 PM,10:03 AM,10:19 AM,16,Done,0
+clean:checkout:A12,Cleaning,Deep clean suite A12 after check-out,Otis,A12,Leo,12:00 PM,10:05 AM,10:23 AM,18,Done,0
+play:gs_res_10430:0,Play,Play session: Finn,Finn,Small Yard,Priya,12:00 PM,10:19 AM,10:36 AM,17,Done,0
+lobby:in:gs_res_10433,Lobby run,Check-in: bring Mabel from the lobby to B9,Mabel,Lobby,Sam,10:30 AM,10:20 AM,10:24 AM,4,Done,0
+water:A:660,Water check,Water check: Row A,,Row A,Jonah,11:00 AM,10:30 AM,10:36 AM,6,Done,0
+water:B:660,Water check,Water check: Row B,,Row B,Leo,11:00 AM,10:30 AM,10:35 AM,5,Done,0
+lobby:out:gs_res_10423,Lobby run,Check-out: bring Nala to the lobby,Nala,Lobby,Sam,10:35 AM,10:30 AM,10:36 AM,6,Done,0
+water:C:660,Water check,Water check: Row C,,Row C,Leo,11:00 AM,10:35 AM,10:40 AM,5,Done,0
+water:K:660,Water check,Water check: Cat condos,,Cat condos,Priya,11:00 AM,10:36 AM,10:42 AM,6,Done,0
+water:Big Yard:660,Water check,Water check: Big Yard,,Big Yard,Sam,11:00 AM,10:40 AM,10:43 AM,3,Done,0
+water:Small Yard:660,Water check,Water check: Small Yard,,Small Yard,Leo,11:00 AM,10:40 AM,10:43 AM,3,Done,0
+water:Puppy Yard:660,Water check,Water check: Puppy Yard,,Puppy Yard,Jonah,11:00 AM,10:40 AM,10:43 AM,3,Done,0
+potty:gs_res_10401:660,Potty walk,Potty walk: Biscuit,Biscuit,A1,Priya,11:00 AM,10:42 AM,10:49 AM,7,Both,0
+potty:gs_res_10402:660,Potty walk,Potty walk: Luna,Luna,A2,Sam,11:00 AM,10:43 AM,10:50 AM,7,Both,0
+potty:gs_res_10404:660,Potty walk,Potty walk: Pepper,Pepper,A3,Jonah,11:00 AM,10:43 AM,10:49 AM,6,Both,0
+potty:gs_res_10406:660,Potty walk,Potty walk: Rosie,Rosie,A4,Leo,11:00 AM,10:43 AM,10:49 AM,6,Both,0
+potty:gs_res_10408:660,Potty walk,Potty walk: Daisy,Daisy,A5,Jonah,11:00 AM,10:49 AM,10:55 AM,6,Both,0
+potty:gs_res_10413:660,Potty walk,Potty walk: Moose,Moose,A7,Priya,11:00 AM,10:49 AM,10:55 AM,6,Both,0
+potty:gs_res_10414:660,Potty walk,Potty walk: Olive,Olive,A8,Leo,11:00 AM,10:49 AM,10:54 AM,5,Both,0
+potty:gs_res_10419:660,Potty walk,Potty walk: Maple,Maple,A11,Sam,11:00 AM,10:50 AM,10:55 AM,5,Both,0
+potty:gs_res_10426:675,Potty walk,Potty walk: Ranger,Ranger,B2,Sam,11:15 AM,10:55 AM,11:02 AM,7,Both,0
+potty:gs_res_10428:675,Potty walk,Potty walk: Koda,Koda,B4,Leo,11:15 AM,10:55 AM,11:05 AM,10,Both,0
+potty:gs_res_10431:675,Potty walk,Potty walk: Ruby,Ruby,B7,Jonah,11:15 AM,10:55 AM,11:01 AM,6,Both,0
+potty:gs_res_10432:675,Potty walk,Potty walk: Duke,Duke,B8,Priya,11:15 AM,10:55 AM,11:01 AM,6,Both,0
+assist:potty:gs_res_10428:675,Assist,Assist Leo: Koda needs a second handler,Koda,B4,Tess,10:59 AM,11:00 AM,11:07 AM,7,Done,1
+lobby:in:gs_res_10434,Lobby run,Check-in: bring Louie from the lobby to B10,Louie,Lobby,Maya,11:10 AM,11:00 AM,11:05 AM,5,Done,0
+potty:gs_res_10434:675,Potty walk,Potty walk: Louie,Louie,B10,Priya,11:15 AM,11:01 AM,11:08 AM,7,Both,0
+play:gs_res_10405:0,Play,Play session: Milo,Milo,Big Yard,Tess,12:00 PM,11:07 AM,11:25 AM,18,Done,0
+play:gs_res_10431:0,Play,Play session: Ruby,Ruby,Small Yard,Priya,12:00 PM,11:08 AM,11:22 AM,14,Done,0
+potty:gs_res_10405:690,Potty walk,Potty walk: Milo,Milo,C2,Sam,11:30 AM,11:10 AM,11:17 AM,7,Both,0
+potty:gs_res_10412:690,Potty walk,Potty walk: Willow,Willow,C6,Leo,11:30 AM,11:10 AM,11:17 AM,7,Both,0
+lobby:out:gs_res_10424,Lobby run,Check-out: bring Beau to the lobby,Beau,Lobby,Maya,11:20 AM,11:15 AM,11:21 AM,6,Done,0
+feed:Big Yard:lunch:690,Feeding,Lunch: Big Yard (3 dogs),Archie; Harley; Jasper,Big Yard,Sam,11:30 AM,11:17 AM,11:27 AM,10,All ate,0
+feed:Puppy Yard:lunch:690,Feeding,Lunch: Puppy Yard (1 dog),Rufus,Puppy Yard,Leo,11:30 AM,11:17 AM,11:22 AM,5,All ate,0
+feed:Small Yard:lunch:690,Feeding,Lunch: Small Yard (3 dogs),Chief; Opal; Scout,Small Yard,Maya,11:30 AM,11:21 AM,11:32 AM,11,All ate,0
+potty:gs_res_10418:690,Potty walk,Potty walk: Gus,Gus,C8,Leo,11:30 AM,11:22 AM,11:28 AM,6,Both,0
+potty:gs_res_10420:690,Potty walk,Potty walk: Diesel,Diesel,C9,Tess,11:30 AM,11:25 AM,11:31 AM,6,Both,0
+potty:gs_res_10421:690,Potty walk,Potty walk: Clover,Clover,C10,Sam,11:30 AM,11:27 AM,11:33 AM,6,Both,0
+clean:checkout:A13,Cleaning,Deep clean suite A13 after check-out,Nala,A13,Leo,12:30 PM,11:28 AM,11:46 AM,18,Done,0
+clean:litter:510,Cleaning,Litter boxes: cat condos,,Cat condos,Omar,8:30 AM,11:30 AM,11:37 AM,7,Done,180
+meds:gs_res_10416:0:720,Meds,Fish oil for Murphy,Murphy,A9,Priya,12:00 PM,11:30 AM,11:34 AM,4,Given,0
+chk:rt-lobby-12:00,Checklist,Lobby floor and door glass,,Routine cleaning,Jonah,12:00 PM,11:31 AM,11:40 AM,9,Done,0
+play:gs_res_10409:0,Play,Play session: Bear,Bear,Big Yard,Tess,12:00 PM,11:31 AM,11:45 AM,14,Done,0
+meds:gs_res_10421:0:720,Meds,Apoquel 16 mg for Clover,Clover,C10,Maya,12:00 PM,11:32 AM,11:36 AM,4,Given,0
+meds:gs_res_10431:0:720,Meds,Thyroid (levothyroxine) 0.5 mg for Ruby,Ruby,B7,Priya,12:00 PM,11:34 AM,11:39 AM,5,Given,0
+meds:gs_res_10458:0:720,Meds,Carprofen 75 mg for Waffles,Waffles,Small Yard,Maya,12:00 PM,11:36 AM,11:41 AM,5,Given,0
+clean:checkout:A14,Cleaning,Deep clean suite A14 after check-out,Beau,A14,Omar,1:15 PM,11:37 AM,11:54 AM,17,Done,0
+water:Big Yard:720,Water check,Water check: Big Yard,,Big Yard,Priya,12:00 PM,11:40 AM,11:43 AM,3,Done,0
+water:Puppy Yard:720,Water check,Water check: Puppy Yard,,Puppy Yard,Jonah,12:00 PM,11:40 AM,11:43 AM,3,Done,0
+water:Small Yard:720,Water check,Water check: Small Yard,,Small Yard,Maya,12:00 PM,11:41 AM,11:44 AM,3,Done,0
+feed:C:lunch:720,Feeding,Lunch: Row C (1 dog),Willow,Row C,Tess,12:00 PM,11:45 AM,11:51 AM,6,All ate,0
+feed:A:lunch:720,Feeding,Lunch: Row A (2 dogs),Moose; Juniper,Row A,Jonah,12:00 PM,11:45 AM,11:53 AM,8,All ate,0
+feed:B:lunch:720,Feeding,Lunch: Row B (3 dogs),Ranger; Mabel; Louie,Row B,Priya,12:00 PM,11:45 AM,11:53 AM,8,All ate,0
+play:gs_res_10412:0,Play,Play session: Willow,Willow,Big Yard,Tess,12:00 PM,11:51 AM,12:08 PM,17,Done,0
+play:gs_res_10415:0,Play,Play session: Penny,Penny,Big Yard,Tess,12:00 PM,12:08 PM,12:22 PM,14,Done,8
+play:gs_res_10421:0,Play,Play session: Clover,Clover,Big Yard,Tess,12:00 PM,12:22 PM,12:37 PM,15,Done,22
+chk:rt-scoop-Big Yard-13:00,Checklist,Scoop and hose Big Yard,,Big Yard,Rosa,1:00 PM,12:30 PM,12:39 PM,9,Done,0
+water:A:780,Water check,Water check: Row A,,Row A,Jonah,1:00 PM,12:30 PM,12:35 PM,5,Done,0
+water:B:780,Water check,Water check: Row B,,Row B,Priya,1:00 PM,12:30 PM,12:36 PM,6,Done,0
+water:C:780,Water check,Water check: Row C,,Row C,Maya,1:00 PM,12:30 PM,12:35 PM,5,Done,0
+water:K:780,Water check,Water check: Cat condos,,Cat condos,Omar,1:00 PM,12:30 PM,12:34 PM,4,Done,0
+lobby:out:gs_res_10425,Lobby run,Check-out: bring Poppy to the lobby,Poppy,Lobby,Sam,12:35 PM,12:30 PM,12:35 PM,5,Done,0
+chk:rt-scoop-Puppy Yard-13:00,Checklist,Scoop and hose Puppy Yard,,Puppy Yard,Omar,1:00 PM,12:34 PM,12:42 PM,8,Done,0
+chk:rt-scoop-Small Yard-13:00,Checklist,Scoop and hose Small Yard,,Small Yard,Jonah,1:00 PM,12:35 PM,12:42 PM,7,Done,0
+clean:checkout:B1,Cleaning,Deep clean suite B1 after check-out,Poppy,B1,Maya,2:30 PM,12:35 PM,12:49 PM,14,Done,0
+water:Big Yard:780,Water check,Water check: Big Yard,,Big Yard,Sam,1:00 PM,12:40 PM,12:43 PM,3,Done,0
+water:Small Yard:780,Water check,Water check: Small Yard,,Small Yard,Tess,1:00 PM,12:40 PM,12:43 PM,3,Done,0
+water:Puppy Yard:780,Water check,Water check: Puppy Yard,,Puppy Yard,Priya,1:00 PM,12:40 PM,12:44 PM,4,Done,0
+play:gs_res_10401:1,Play,Play session: Biscuit,Biscuit,Small Yard,Tess,4:30 PM,1:00 PM,1:13 PM,13,Done,0
+play:gs_res_10402:1,Play,Play session: Luna,Luna,Small Yard,Priya,4:30 PM,1:00 PM,1:16 PM,16,Done,0
+lobby:out:gs_res_10437,Lobby run,Check-out: bring Dot to the lobby,Dot,Lobby,Sam,1:05 PM,1:00 PM,1:06 PM,6,Done,0
+clean:checkout:K3,Cleaning,Deep clean suite K3 after check-out,Dot,K3,Jonah,3:00 PM,1:05 PM,1:19 PM,14,Done,0
+play:gs_res_10404:1,Play,Play session: Pepper,Pepper,Small Yard,Tess,4:30 PM,1:13 PM,1:29 PM,16,Done,0
+play:gs_res_10406:1,Play,Play session: Rosie,Rosie,Small Yard,Priya,4:30 PM,1:16 PM,1:35 PM,19,Done,0
+play:gs_res_10405:1,Play,Play session: Milo,Milo,Big Yard,Tess,4:30 PM,1:29 PM,1:46 PM,17,Done,0
+chk:rt-laundry-14:00,Checklist,Swap laundry,,Routine cleaning,Leo,2:00 PM,1:30 PM,1:35 PM,5,Done,0
+lobby:in:gs_res_10999,Lobby run,Check-in: bring Ziggy from the lobby to B11,Ziggy,Lobby,Sam,1:40 PM,1:30 PM,1:36 PM,6,Done,0
+play:gs_res_10413:1,Play,Play session: Moose,Moose,Small Yard,Priya,4:30 PM,1:35 PM,1:49 PM,14,Done,0
+water:Big Yard:840,Water check,Water check: Big Yard,,Big Yard,Sam,2:00 PM,1:40 PM,1:43 PM,3,Done,0
+water:Small Yard:840,Water check,Water check: Small Yard,,Small Yard,Leo,2:00 PM,1:40 PM,1:43 PM,3,Done,0
+water:Puppy Yard:840,Water check,Water check: Puppy Yard,,Puppy Yard,Jonah,2:00 PM,1:40 PM,1:43 PM,3,Done,0
+play:gs_res_10409:1,Play,Play session: Bear,Bear,Big Yard,Tess,4:30 PM,1:46 PM,2:03 PM,17,Done,0
+play:gs_res_10430:1,Play,Play session: Finn,Finn,Small Yard,Priya,4:30 PM,1:49 PM,2:06 PM,17,Done,0
+lobby:out:gs_res_10426,Lobby run,Check-out: bring Ranger to the lobby,Ranger,Lobby,Sam,2:05 PM,2:00 PM,2:05 PM,5,Done,0
+play:gs_res_10412:1,Play,Play session: Willow,Willow,Big Yard,Tess,4:30 PM,2:03 PM,2:17 PM,14,Done,0
+clean:checkout:B2,Cleaning,Deep clean suite B2 after check-out,Ranger,B2,Jonah,4:00 PM,2:05 PM,2:23 PM,18,Done,0
+play:gs_res_10431:1,Play,Play session: Ruby,Ruby,Small Yard,Priya,4:30 PM,2:06 PM,2:21 PM,15,Done,0
+play:gs_res_10415:1,Play,Play session: Penny,Penny,Big Yard,Tess,4:30 PM,2:17 PM,2:33 PM,16,Done,0
+play:gs_res_10432:1,Play,Play session: Duke,Duke,Small Yard,Priya,4:30 PM,2:21 PM,2:40 PM,19,Done,0
+water:A:900,Water check,Water check: Row A,,Row A,Sam,3:00 PM,2:30 PM,2:35 PM,5,Done,0
+water:B:900,Water check,Water check: Row B,,Row B,Leo,3:00 PM,2:30 PM,2:36 PM,6,Done,0
+water:C:900,Water check,Water check: Row C,,Row C,Rosa,3:00 PM,2:30 PM,2:35 PM,5,Done,0
+water:K:900,Water check,Water check: Cat condos,,Cat condos,Omar,3:00 PM,2:30 PM,2:36 PM,6,Done,0
+chk:rt-lobby-15:00,Checklist,Lobby floor and door glass,,Routine cleaning,Rosa,3:00 PM,2:35 PM,2:45 PM,10,Done,0
+clean:litter:930,Cleaning,Litter boxes: cat condos,,Cat condos,Omar,3:30 PM,2:36 PM,2:46 PM,10,Done,0
+water:Big Yard:900,Water check,Water check: Big Yard,,Big Yard,Sam,3:00 PM,2:40 PM,2:43 PM,3,Done,0
+water:Small Yard:900,Water check,Water check: Small Yard,,Small Yard,Priya,3:00 PM,2:40 PM,2:44 PM,4,Done,0
+water:Puppy Yard:900,Water check,Water check: Puppy Yard,,Puppy Yard,Leo,3:00 PM,2:40 PM,2:43 PM,3,Done,0
+potty:gs_res_10401:900,Potty walk,Potty walk: Biscuit,Biscuit,A1,Sam,3:00 PM,2:43 PM,2:50 PM,7,Both,0
+potty:gs_res_10402:900,Potty walk,Potty walk: Luna,Luna,A2,Leo,3:00 PM,2:43 PM,2:50 PM,7,Both,0
+potty:gs_res_10404:900,Potty walk,Potty walk: Pepper,Pepper,A3,Priya,3:00 PM,2:44 PM,2:50 PM,6,Both,0
+potty:gs_res_10406:900,Potty walk,Potty walk: Rosie,Rosie,A4,Rosa,3:00 PM,2:45 PM,2:51 PM,6,Both,0
+potty:gs_res_10408:900,Potty walk,Potty walk: Daisy,Daisy,A5,Omar,3:00 PM,2:46 PM,2:52 PM,6,Both,0
+potty:gs_res_10410:900,Potty walk,Potty walk: Hazel,Hazel,A6,Sam,3:00 PM,2:50 PM,2:55 PM,5,Both,0
+potty:gs_res_10413:900,Potty walk,Potty walk: Moose,Moose,A7,Priya,3:00 PM,2:50 PM,2:55 PM,5,Both,0
+potty:gs_res_10414:900,Potty walk,Potty walk: Olive,Olive,A8,Leo,3:00 PM,2:50 PM,2:56 PM,6,Both,0
+potty:gs_res_10416:900,Potty walk,Potty walk: Murphy,Murphy,A9,Rosa,3:00 PM,2:51 PM,2:57 PM,6,Both,0
+potty:gs_res_10417:900,Potty walk,Potty walk: Juniper,Juniper,A10,Omar,3:00 PM,2:52 PM,2:57 PM,5,Both,0
+potty:gs_res_10419:900,Potty walk,Potty walk: Maple,Maple,A11,Sam,3:00 PM,2:55 PM,3:01 PM,6,Both,0
+potty:gs_res_10430:915,Potty walk,Potty walk: Finn,Finn,B6,Priya,3:15 PM,2:55 PM,3:02 PM,7,Both,0
+potty:gs_res_10427:915,Potty walk,Potty walk: Winnie,Winnie,B3,Leo,3:15 PM,2:56 PM,3:01 PM,5,Both,0
+potty:gs_res_10428:915,Potty walk,Potty walk: Koda,Koda,B4,Rosa,3:15 PM,2:57 PM,3:03 PM,6,Both,0
+potty:gs_res_10431:915,Potty walk,Potty walk: Ruby,Ruby,B7,Omar,3:15 PM,2:57 PM,3:04 PM,7,Both,0
+potty:gs_res_10429:915,Potty walk,Potty walk: Sadie,Sadie,B5,Leo,3:15 PM,3:01 PM,3:06 PM,5,Both,0
+potty:gs_res_10432:915,Potty walk,Potty walk: Duke,Duke,B8,Priya,3:15 PM,3:02 PM,3:09 PM,7,Both,0
+potty:gs_res_10433:915,Potty walk,Potty walk: Mabel,Mabel,B9,Tess,3:15 PM,3:03 PM,3:10 PM,7,Both,0
+potty:gs_res_10434:915,Potty walk,Potty walk: Louie,Louie,B10,Rosa,3:15 PM,3:03 PM,3:09 PM,6,Both,0
+potty:gs_res_10999:915,Potty walk,Potty walk: Ziggy,Ziggy,B11,Leo,3:15 PM,3:06 PM,3:13 PM,7,Both,0
+clean:spot:A:960,Cleaning,Spot clean: Row A,,Row A,Rosa,4:00 PM,3:09 PM,3:27 PM,18,Done,0
+play:gs_res_10433:1,Play,Play session: Mabel,Mabel,Small Yard,Priya,4:30 PM,3:09 PM,3:23 PM,14,Done,0
+potty:gs_res_10403:930,Potty walk,Potty walk: Bruno,Bruno,C1,Tess,3:30 PM,3:10 PM,3:16 PM,6,Both,0
+potty:gs_res_10405:930,Potty walk,Potty walk: Milo,Milo,C2,Leo,3:30 PM,3:13 PM,3:19 PM,6,Both,0
+potty:gs_res_10407:930,Potty walk,Potty walk: Tucker,Tucker,C3,Tess,3:30 PM,3:16 PM,3:22 PM,6,Both,0
+potty:gs_res_10409:930,Potty walk,Potty walk: Bear,Bear,C4,Leo,3:30 PM,3:19 PM,3:25 PM,6,Both,0
+potty:gs_res_10411:930,Potty walk,Potty walk: Rocco,Rocco,C5,Tess,3:30 PM,3:22 PM,3:29 PM,7,Both,0
+play:gs_res_10434:1,Play,Play session: Louie,Louie,Small Yard,Priya,4:30 PM,3:23 PM,3:40 PM,17,Done,0
+potty:gs_res_10412:930,Potty walk,Potty walk: Willow,Willow,C6,Leo,3:30 PM,3:25 PM,3:32 PM,7,Both,0
+potty:gs_res_10415:930,Potty walk,Potty walk: Penny,Penny,C7,Rosa,3:30 PM,3:27 PM,3:34 PM,7,Both,0
+potty:gs_res_10418:930,Potty walk,Potty walk: Gus,Gus,C8,Tess,3:30 PM,3:29 PM,3:36 PM,7,Both,0
+potty:gs_res_10420:930,Potty walk,Potty walk: Diesel,Diesel,C9,Leo,3:30 PM,3:32 PM,3:38 PM,6,Both,2
+chk:rt-scoop-Big Yard-16:00,Checklist,Scoop and hose Big Yard,,Big Yard,Omar,4:00 PM,3:34 PM,3:43 PM,9,Done,0
+potty:gs_res_10421:930,Potty walk,Potty walk: Clover,Clover,C10,Tess,3:30 PM,3:36 PM,3:42 PM,6,Both,6
+chk:rt-scoop-Puppy Yard-16:00,Checklist,Scoop and hose Puppy Yard,,Puppy Yard,Leo,4:00 PM,3:38 PM,3:47 PM,9,Done,0
+water:Big Yard:960,Water check,Water check: Big Yard,,Big Yard,Tess,4:00 PM,3:42 PM,3:45 PM,3,Done,0
+water:Puppy Yard:960,Water check,Water check: Puppy Yard,,Puppy Yard,Omar,4:00 PM,3:43 PM,3:47 PM,4,Done,0
+water:Small Yard:960,Water check,Water check: Small Yard,,Small Yard,Tess,4:00 PM,3:45 PM,3:48 PM,3,Done,0
+chk:rt-scoop-Small Yard-16:00,Checklist,Scoop and hose Small Yard,,Small Yard,Leo,4:00 PM,3:47 PM,3:55 PM,8,Done,0
+clean:spot:B:960,Cleaning,Spot clean: Row B,,Row B,Omar,4:00 PM,3:47 PM,4:08 PM,21,Done,0
+play:gs_res_10421:1,Play,Play session: Clover,Clover,Big Yard,Tess,4:30 PM,3:48 PM,4:05 PM,17,Done,0
+clean:spot:C:960,Cleaning,Spot clean: Row C,,Row C,Leo,4:00 PM,3:55 PM,4:15 PM,20,Done,0
+lobby:out:gs_res_10456,Lobby run,Check-out: bring Riley to the lobby,Riley,Lobby,Rosa,4:06 PM,4:04 PM,4:09 PM,5,Done,0
+lobby:out:gs_res_10449,Lobby run,Check-out: bring Toby to the lobby,Toby,Lobby,Tess,4:08 PM,4:05 PM,4:11 PM,6,Done,0
+lobby:out:gs_res_10447,Lobby run,Check-out: bring Scout to the lobby,Scout,Lobby,Rosa,4:09 PM,4:09 PM,4:15 PM,6,Done,0
+lobby:out:gs_res_10450,Lobby run,Check-out: bring Honey to the lobby,Honey,Lobby,Tess,4:13 PM,4:11 PM,4:17 PM,6,Done,0
+feed:A:dinner:990,Feeding,Dinner: Row A (11 dogs),Biscuit; Luna; Pepper; Rosie; Daisy; Hazel; Moose; Olive; Murphy; Juniper; Maple,Row A,Omar,4:30 PM,4:15 PM,4:40 PM,25,All ate,0
+lobby:out:gs_res_10443,Lobby run,Check-out: bring Jasper to the lobby,Jasper,Lobby,Leo,4:18 PM,4:15 PM,4:20 PM,5,Done,0
+lobby:out:gs_res_10427,Lobby run,Check-out: bring Winnie to the lobby,Winnie,Lobby,Rosa,4:20 PM,4:15 PM,4:20 PM,5,Done,0
+lobby:out:gs_res_10461,Lobby run,Check-out: bring Theo to the lobby,Theo,Lobby,Tess,4:20 PM,4:17 PM,4:22 PM,5,Done,0
+feed:C:dinner:990,Feeding,Dinner: Row C (10 dogs),Bruno; Milo; Tucker; Bear; Rocco; Willow; Penny; Gus; Diesel; Clover,Row C,Rosa,4:30 PM,4:20 PM,4:41 PM,21,All ate,0
+feed:B:dinner:990,Feeding,Dinner: Row B (8 dogs),Koda; Sadie; Finn; Ruby; Duke; Mabel; Louie; Ziggy,Row B,Leo,4:30 PM,4:20 PM,4:38 PM,18,All ate,0
+lobby:out:gs_res_10445,Lobby run,Check-out: bring Rufus to the lobby,Rufus,Lobby,Tess,4:30 PM,4:25 PM,4:30 PM,5,Done,0
+lobby:out:gs_res_10446,Lobby run,Check-out: bring Coco to the lobby,Coco,Lobby,Tess,4:33 PM,4:30 PM,4:35 PM,5,Done,0
+water:A:1020,Water check,Water check: Row A,,Row A,Tess,5:00 PM,4:35 PM,4:40 PM,5,Done,0
+feed:K:dinner:990,Feeding,Dinner: Cat condos (4 cats),Mochi; Pickles; Kiwi; Bean,Cat condos,Omar,4:30 PM,4:40 PM,4:52 PM,12,All ate,10
+water:B:1020,Water check,Water check: Row B,,Row B,Tess,5:00 PM,4:40 PM,4:45 PM,5,Done,0
+water:Big Yard:1020,Water check,Water check: Big Yard,,Big Yard,Rosa,5:00 PM,4:41 PM,4:44 PM,3,Done,0
+water:C:1020,Water check,Water check: Row C,,Row C,Rosa,5:00 PM,4:44 PM,4:49 PM,5,Done,0
+water:Puppy Yard:1020,Water check,Water check: Puppy Yard,,Puppy Yard,Tess,5:00 PM,4:45 PM,4:48 PM,3,Done,0
+lobby:out:gs_res_10442,Lobby run,Check-out: bring Lola to the lobby,Lola,Lobby,Tess,4:53 PM,4:48 PM,4:53 PM,5,Done,0
+water:Small Yard:1020,Water check,Water check: Small Yard,,Small Yard,Rosa,5:00 PM,4:49 PM,4:52 PM,3,Done,0
+meds:gs_res_10999:0:1020,Meds,Gabapentin 100 mg for Ziggy,Ziggy,B11,Omar,5:00 PM,4:52 PM,4:56 PM,4,Given,0
+clean:checkout:B3,Cleaning,Deep clean suite B3 after check-out,Winnie,B3,Rosa,6:15 PM,4:52 PM,5:09 PM,17,Done,0
+water:K:1020,Water check,Water check: Cat condos,,Cat condos,Omar,5:00 PM,4:56 PM,5:01 PM,5,Done,0
+lobby:out:gs_res_10459,Lobby run,Check-out: bring Nova to the lobby,Nova,Lobby,Tess,5:06 PM,5:01 PM,5:06 PM,5,Done,0
+lobby:out:gs_res_10448,Lobby run,Check-out: bring Lily to the lobby,Lily,Lobby,Tess,5:07 PM,5:06 PM,5:11 PM,5,Done,0
+lobby:out:gs_res_10460,Lobby run,Check-out: bring Chief to the lobby,Chief,Lobby,Rosa,5:07 PM,5:09 PM,5:13 PM,4,Done,2
+lobby:out:gs_res_10440,Lobby run,Check-out: bring Stella to the lobby,Stella,Lobby,Tess,5:19 PM,5:14 PM,5:19 PM,5,Done,0
+lobby:out:gs_res_10455,Lobby run,Check-out: bring Opal to the lobby,Opal,Lobby,Tess,5:26 PM,5:21 PM,5:27 PM,6,Done,0
+lobby:out:gs_res_10444,Lobby run,Check-out: bring Ivy to the lobby,Ivy,Lobby,Rosa,5:28 PM,5:23 PM,5:28 PM,5,Done,0
+chk:rt-laundry-18:00,Checklist,Swap laundry,,Routine cleaning,Rosa,6:00 PM,5:30 PM,5:36 PM,6,Done,0
+meds:gs_res_10404:0:1080,Meds,Carprofen 75 mg for Pepper,Pepper,A3,Omar,6:00 PM,5:30 PM,5:35 PM,5,Given,0
+lobby:out:gs_res_10428,Lobby run,Check-out: bring Koda to the lobby,Koda,Lobby,Tess,5:35 PM,5:30 PM,5:35 PM,5,Done,0
+meds:gs_res_10407:0:1080,Meds,Thyroid (levothyroxine) 0.5 mg for Tucker,Tucker,C3,Omar,6:00 PM,5:35 PM,5:39 PM,4,Given,0
+lobby:out:gs_res_10457,Lobby run,Check-out: bring Sage to the lobby,Sage,Lobby,Tess,5:40 PM,5:35 PM,5:40 PM,5,Done,0
+chk:rt-lobby-18:00,Checklist,Lobby floor and door glass,,Routine cleaning,Rosa,6:00 PM,5:36 PM,5:45 PM,9,Done,0
+meds:gs_res_10413:0:1080,Meds,Thyroid (levothyroxine) 0.5 mg for Moose,Moose,A7,Omar,6:00 PM,5:39 PM,5:44 PM,5,Given,0
+lobby:out:gs_res_10458,Lobby run,Check-out: bring Waffles to the lobby,Waffles,Lobby,Tess,5:48 PM,5:43 PM,5:49 PM,6,Done,0
+meds:gs_res_10416:0:1080,Meds,Fish oil for Murphy,Murphy,A9,Omar,6:00 PM,5:44 PM,5:48 PM,4,Given,0
+lobby:out:gs_res_10452,Lobby run,Check-out: bring Pearl to the lobby,Pearl,Lobby,Rosa,5:50 PM,5:45 PM,5:51 PM,6,Done,0
+meds:gs_res_10421:0:1080,Meds,Apoquel 16 mg for Clover,Clover,C10,Omar,6:00 PM,5:48 PM,5:51 PM,3,Given,0
+lobby:out:gs_res_10441,Lobby run,Check-out: bring Cooper to the lobby,Cooper,Lobby,Tess,5:51 PM,5:49 PM,5:54 PM,5,Done,0
+meds:gs_res_10430:0:1080,Meds,Carprofen 75 mg for Finn,Finn,B6,Omar,6:00 PM,5:51 PM,5:54 PM,3,Given,0
+clean:checkout:B4,Cleaning,Deep clean suite B4 after check-out,Koda,B4,Rosa,7:30 PM,5:51 PM,6:08 PM,17,Done,0
+meds:gs_res_10431:0:1080,Meds,Thyroid (levothyroxine) 0.5 mg for Ruby,Ruby,B7,Omar,6:00 PM,5:54 PM,5:58 PM,4,Given,0
+meds:gs_res_10436:0:1080,Meds,Methimazole 2.5 mg for Pickles,Pickles,K2,Omar,6:00 PM,5:58 PM,6:03 PM,5,Given,0
+lobby:out:gs_res_10453,Lobby run,Check-out: bring Bandit to the lobby,Bandit,Lobby,Tess,6:05 PM,6:00 PM,6:06 PM,6,Done,0
+potty:gs_res_10401:1110,Potty walk,Potty walk: Biscuit,Biscuit,A1,Omar,6:30 PM,6:10 PM,6:15 PM,5,Both,0
+potty:gs_res_10402:1110,Potty walk,Potty walk: Luna,Luna,A2,Rosa,6:30 PM,6:10 PM,6:17 PM,7,Both,0
+lobby:out:gs_res_10451,Lobby run,Check-out: bring Archie to the lobby,Archie,Lobby,Tess,6:15 PM,6:10 PM,6:16 PM,6,Done,0
+potty:gs_res_10404:1110,Potty walk,Potty walk: Pepper,Pepper,A3,Omar,6:30 PM,6:15 PM,6:22 PM,7,Both,0
+potty:gs_res_10406:1110,Potty walk,Potty walk: Rosie,Rosie,A4,Tess,6:30 PM,6:16 PM,6:22 PM,6,Both,0
+potty:gs_res_10408:1110,Potty walk,Potty walk: Daisy,Daisy,A5,Rosa,6:30 PM,6:17 PM,6:23 PM,6,Both,0
+potty:gs_res_10410:1110,Potty walk,Potty walk: Hazel,Hazel,A6,Tess,6:30 PM,6:22 PM,6:27 PM,5,Both,0
+potty:gs_res_10413:1110,Potty walk,Potty walk: Moose,Moose,A7,Omar,6:30 PM,6:22 PM,6:28 PM,6,Both,0
+potty:gs_res_10414:1110,Potty walk,Potty walk: Olive,Olive,A8,Rosa,6:30 PM,6:23 PM,6:29 PM,6,Both,0
+lobby:out:gs_res_10454,Lobby run,Check-out: bring Harley to the lobby,Harley,Lobby,Tess,6:31 PM,6:27 PM,6:33 PM,6,Done,0
+potty:gs_res_10416:1110,Potty walk,Potty walk: Murphy,Murphy,A9,Omar,6:30 PM,6:28 PM,6:35 PM,7,Both,0
+potty:gs_res_10417:1110,Potty walk,Potty walk: Juniper,Juniper,A10,Rosa,6:30 PM,6:29 PM,6:36 PM,7,Both,0
+potty:gs_res_10419:1110,Potty walk,Potty walk: Maple,Maple,A11,Tess,6:30 PM,6:33 PM,6:39 PM,6,Both,3
+potty:gs_res_10430:1125,Potty walk,Potty walk: Finn,Finn,B6,Omar,6:45 PM,6:35 PM,6:41 PM,6,Both,0
+potty:gs_res_10429:1125,Potty walk,Potty walk: Sadie,Sadie,B5,Rosa,6:45 PM,6:36 PM,6:43 PM,7,Both,0
+potty:gs_res_10431:1125,Potty walk,Potty walk: Ruby,Ruby,B7,Tess,6:45 PM,6:39 PM,6:45 PM,6,Both,0
+potty:gs_res_10432:1125,Potty walk,Potty walk: Duke,Duke,B8,Omar,6:45 PM,6:41 PM,6:47 PM,6,Both,0
+potty:gs_res_10433:1125,Potty walk,Potty walk: Mabel,Mabel,B9,Rosa,6:45 PM,6:43 PM,6:50 PM,7,Both,0
+potty:gs_res_10434:1125,Potty walk,Potty walk: Louie,Louie,B10,Tess,6:45 PM,6:45 PM,6:52 PM,7,Both,0
+potty:gs_res_10999:1125,Potty walk,Potty walk: Ziggy,Ziggy,B11,Omar,6:45 PM,6:47 PM,6:54 PM,7,Both,2
+water:A:1140,Water check,Water check: Row A,,Row A,Rosa,7:00 PM,6:50 PM,6:56 PM,6,Done,0
+water:B:1140,Water check,Water check: Row B,,Row B,Tess,7:00 PM,6:52 PM,6:57 PM,5,Done,0
+water:C:1140,Water check,Water check: Row C,,Row C,Omar,7:00 PM,6:54 PM,7:00 PM,6,Done,0
+potty:gs_res_10403:1140,Potty walk,Potty walk: Bruno,Bruno,C1,Rosa,7:00 PM,6:56 PM,7:02 PM,6,Both,0
+potty:gs_res_10405:1140,Potty walk,Potty walk: Milo,Milo,C2,Tess,7:00 PM,6:57 PM,7:04 PM,7,Both,0
+water:K:1140,Water check,Water check: Cat condos,,Cat condos,Omar,7:00 PM,7:00 PM,7:05 PM,5,Done,0
+potty:gs_res_10407:1140,Potty walk,Potty walk: Tucker,Tucker,C3,Rosa,7:00 PM,7:02 PM,7:09 PM,7,Both,2
+potty:gs_res_10409:1140,Potty walk,Potty walk: Bear,Bear,C4,Tess,7:00 PM,7:04 PM,7:11 PM,7,Both,4
+chk:close-water,Checklist,"Final water and bedding check, all rows",,Closing,Omar,7:30 PM,7:05 PM,7:23 PM,18,Done,0
+potty:gs_res_10411:1140,Potty walk,Potty walk: Rocco,Rocco,C5,Rosa,7:00 PM,7:09 PM,7:14 PM,5,Both,9
+potty:gs_res_10412:1140,Potty walk,Potty walk: Willow,Willow,C6,Tess,7:00 PM,7:11 PM,7:18 PM,7,Both,11
+potty:gs_res_10415:1140,Potty walk,Potty walk: Penny,Penny,C7,Rosa,7:00 PM,7:14 PM,7:19 PM,5,Both,14
+potty:gs_res_10418:1140,Potty walk,Potty walk: Gus,Gus,C8,Tess,7:00 PM,7:18 PM,7:25 PM,7,Both,18
+potty:gs_res_10420:1140,Potty walk,Potty walk: Diesel,Diesel,C9,Rosa,7:00 PM,7:19 PM,7:26 PM,7,Both,19
+chk:close-yards,Checklist,Lock every yard gate,,Closing,Omar,7:45 PM,7:23 PM,7:28 PM,5,Done,0
+potty:gs_res_10421:1140,Potty walk,Potty walk: Clover,Clover,C10,Tess,7:00 PM,7:25 PM,7:32 PM,7,Both,25
+chk:close-bowls,Checklist,Wash and sanitize bowls,,Closing,Rosa,7:50 PM,7:26 PM,7:36 PM,10,Done,0
+chk:close-laundry,Checklist,Fold and shelve laundry,,Closing,Omar,7:50 PM,7:28 PM,7:38 PM,10,Done,0
+chk:close-trash,Checklist,Trash and recycling out,,Closing,Rosa,7:55 PM,7:36 PM,7:43 PM,7,Done,0
+chk:close-lobby,Checklist,"Lobby: tablet charging, door locked",,Closing,Omar,7:58 PM,7:38 PM,7:43 PM,5,Done,0

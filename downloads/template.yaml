@@ -1,0 +1,407 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Petropolis Work Engine, Phase 1 pilot (one location). Goose reservations become
+  prioritized tasks delivered in Slack. Everything is created in the Petropolis AWS account.
+
+Parameters:
+  LocationId:
+    Type: String
+    Default: pilot
+    AllowedPattern: '[a-z0-9-]+'
+  LocalTimeZone:
+    Type: String
+    Default: America/Chicago
+  FloorChannelId:
+    Type: String
+    Description: Slack channel ID of #floor-leads (alerts, help requests, coverage check)
+    AllowedPattern: 'C[A-Z0-9]+'
+  AlertEmail:
+    Type: String
+    Description: Who gets an email when something breaks
+    AllowedPattern: '.+@.+'
+  GooseApiBase:
+    Type: String
+    Description: Goose API base URL for the 2-minute poll fallback (confirm with Goose)
+    Default: https://goose-api.example.com
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures: [arm64]
+    MemorySize: 256
+    Timeout: 10
+    CodeUri: src/
+    LoggingConfig:
+      LogFormat: JSON
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref Table
+        QUEUE_URL: !Ref ActionQueue
+        SECRET_ARN: !Ref Keys
+        PHOTO_BUCKET: !Ref Photos
+        LOCATION_ID: !Ref LocationId
+        LOCAL_TZ: !Ref LocalTimeZone
+        FLOOR_CHANNEL: !Ref FloorChannelId
+        GOOSE_API_BASE: !Ref GooseApiBase
+
+Resources:
+  # ---------------- Data ----------------
+  Table:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - { AttributeName: PK, AttributeType: S }
+        - { AttributeName: SK, AttributeType: S }
+        - { AttributeName: GSI1PK, AttributeType: S }
+        - { AttributeName: GSI1SK, AttributeType: S }
+      KeySchema:
+        - { AttributeName: PK, KeyType: HASH }
+        - { AttributeName: SK, KeyType: RANGE }
+      GlobalSecondaryIndexes:
+        - IndexName: GSI1
+          KeySchema:
+            - { AttributeName: GSI1PK, KeyType: HASH }
+            - { AttributeName: GSI1SK, KeyType: RANGE }
+          Projection: { ProjectionType: ALL }
+      TimeToLiveSpecification: { AttributeName: ttl, Enabled: true }
+      PointInTimeRecoverySpecification: { PointInTimeRecoveryEnabled: true }
+      SSESpecification: { SSEEnabled: true }
+
+  Photos:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      LifecycleConfiguration:
+        Rules:
+          - Id: older-photos-to-infrequent-access
+            Status: Enabled
+            Transitions:
+              - { StorageClass: STANDARD_IA, TransitionInDays: 90 }
+
+  Keys:
+    Type: AWS::SecretsManager::Secret
+    Properties:
+      Description: Slack and Goose keys. Paste real values after the first deploy.
+      SecretString: '{"slackBotToken":"xoxb-replace-me","slackSigningSecret":"replace-me","gooseWebhookSecret":"replace-me","gooseApiKey":"replace-me","offlineLinkSecret":"replace-me"}'
+
+  ActionDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      MessageRetentionPeriod: 1209600
+      SqsManagedSseEnabled: true
+
+  ActionQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      VisibilityTimeout: 60
+      SqsManagedSseEnabled: true
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt ActionDLQ.Arn
+        maxReceiveCount: 5
+
+  # ---------------- Manager sign-in ----------------
+  Managers:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UsernameAttributes: [email]
+      AutoVerifiedAttributes: [email]
+      AdminCreateUserConfig: { AllowAdminCreateUserOnly: true }
+      Policies:
+        PasswordPolicy: { MinimumLength: 12, RequireLowercase: true, RequireNumbers: true, RequireUppercase: true, RequireSymbols: false }
+
+  ManagersClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref Managers
+      GenerateSecret: false
+      ExplicitAuthFlows: [ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH]
+
+  ManagersGroup:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties:
+      GroupName: managers
+      UserPoolId: !Ref Managers
+
+  # ---------------- API ----------------
+  Api:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      Auth:
+        Authorizers:
+          ManagerJwt:
+            IdentitySource: $request.header.Authorization
+            JwtConfiguration:
+              issuer: !Sub https://cognito-idp.${AWS::Region}.amazonaws.com/${Managers}
+              audience: [!Ref ManagersClient]
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 50
+        ThrottlingRateLimit: 25
+
+  # ---------------- Functions ----------------
+  SlackIngressFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Verifies Slack requests, opens modals inline, queues everything else; answers within Slack's 3 seconds
+      Handler: lambda/slack-ingress.handler
+      MemorySize: 512
+      Timeout: 3
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - SQSSendMessagePolicy: { QueueName: !GetAtt ActionQueue.QueueName }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+      Events:
+        Interactions:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Method: POST, Path: /slack/interactions }
+        SlackEvents:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Method: POST, Path: /slack/events }
+
+  WorkerFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Applies taps, updates Slack cards, copies photos to S3, dispatches the next task
+      Handler: lambda/worker.handler
+      Timeout: 30
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+        - S3WritePolicy: { BucketName: !Ref Photos }
+      Events:
+        Actions:
+          Type: SQS
+          Properties:
+            Queue: !GetAtt ActionQueue.Arn
+            BatchSize: 5
+            FunctionResponseTypes: [ReportBatchItemFailures]
+
+  GooseWebhookFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Live Goose events (bookings, changes, check-in and check-out started)
+      Handler: lambda/goose.webhookHandler
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+      Events:
+        Webhook:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Method: POST, Path: /goose/webhook }
+
+  GoosePollFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Fallback when live events are missing; asks Goose what changed since the last cursor
+      Handler: lambda/goose.pollHandler
+      Timeout: 30
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+      Events:
+        EveryTwoMinutes:
+          Type: ScheduleV2
+          Properties:
+            ScheduleExpression: rate(2 minutes)
+
+  TickFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Every minute; re-scores the queue, escalates overdue welfare tasks, dispatches idle staff
+      Handler: lambda/tick.handler
+      Timeout: 30
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+      Events:
+        EveryMinute:
+          Type: ScheduleV2
+          Properties:
+            ScheduleExpression: rate(1 minute)
+
+  DayPlannerFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: 5:00 AM local; builds the day's tasks and posts the coverage check
+      Handler: lambda/day-planner.handler
+      Timeout: 60
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+      Events:
+        FiveAm:
+          Type: ScheduleV2
+          Properties:
+            ScheduleExpression: cron(0 5 * * ? *)
+            ScheduleExpressionTimezone: !Ref LocalTimeZone
+
+  OfflineFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Offline list page, its task snapshot, and the sync endpoint for taps made without signal
+      Handler: lambda/offline-sync.handler
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+      Events:
+        Page:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Method: GET, Path: /offline/app }
+        Worker:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Method: GET, Path: /offline/sw.js }
+        Snapshot:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Method: GET, Path: /offline/tasks }
+        Sync:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Method: POST, Path: /offline/sync }
+
+  AdminFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Manager admin for staff, qualifications, templates, priority overrides, reassigning and creating tasks
+      Handler: lambda/admin-api.handler
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref Table }
+        - AWSSecretsManagerGetSecretValuePolicy: { SecretArn: !Ref Keys }
+      Events:
+        Admin:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Method: ANY
+            Path: /admin/{proxy+}
+            Auth: { Authorizer: ManagerJwt }
+
+  # ---------------- Monitoring ----------------
+  Alerts:
+    Type: AWS::SNS::Topic
+    Properties:
+      Subscription:
+        - { Protocol: email, Endpoint: !Ref AlertEmail }
+
+  IngressSlowAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Slack acknowledgements are getting close to Slack's 3-second limit
+      Namespace: AWS/Lambda
+      MetricName: Duration
+      Dimensions: [{ Name: FunctionName, Value: !Ref SlackIngressFn }]
+      ExtendedStatistic: p99
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 2000
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref Alerts]
+
+  WorkerErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Worker is failing; taps may not be applied
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions: [{ Name: FunctionName, Value: !Ref WorkerFn }]
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 0
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref Alerts]
+
+  DeadLettersAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: A tap failed 5 times and was parked in the dead-letter queue
+      Namespace: AWS/SQS
+      MetricName: ApproximateNumberOfMessagesVisible
+      Dimensions: [{ Name: QueueName, Value: !GetAtt ActionDLQ.QueueName }]
+      Statistic: Maximum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 0
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref Alerts]
+
+  GoosePollErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The Goose fallback poll is failing; new bookings may not reach the queue
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions: [{ Name: FunctionName, Value: !Ref GoosePollFn }]
+      Statistic: Sum
+      Period: 600
+      EvaluationPeriods: 1
+      Threshold: 2
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref Alerts]
+
+  # ---------------- Backups (in addition to 35-day point-in-time recovery) ----------------
+  BackupVault:
+    Type: AWS::Backup::BackupVault
+    Properties:
+      BackupVaultName: !Sub ${AWS::StackName}-vault
+
+  BackupPlan:
+    Type: AWS::Backup::BackupPlan
+    Properties:
+      BackupPlan:
+        BackupPlanName: !Sub ${AWS::StackName}-daily
+        BackupPlanRule:
+          - RuleName: daily-35-days
+            TargetBackupVault: !Ref BackupVault
+            ScheduleExpression: cron(0 9 * * ? *)
+            Lifecycle: { DeleteAfterDays: 35 }
+
+  BackupRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: backup.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup
+        - arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores
+
+  BackupSelection:
+    Type: AWS::Backup::BackupSelection
+    Properties:
+      BackupPlanId: !Ref BackupPlan
+      BackupSelection:
+        SelectionName: work-engine-table
+        IamRoleArn: !GetAtt BackupRole.Arn
+        Resources: [!GetAtt Table.Arn]
+
+Outputs:
+  ApiUrl:
+    Description: Base URL. Slack interactivity -> /slack/interactions, events -> /slack/events, Goose -> /goose/webhook
+    Value: !Sub https://${Api}.execute-api.${AWS::Region}.${AWS::URLSuffix}
+  TableName:
+    Value: !Ref Table
+  PhotoBucket:
+    Value: !Ref Photos
+  KeysSecret:
+    Description: Paste the Slack bot token, signing secret and Goose keys here after the first deploy
+    Value: !Ref Keys
+  ManagerUserPool:
+    Value: !Ref Managers

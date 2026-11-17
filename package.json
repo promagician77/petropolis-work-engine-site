@@ -1,0 +1,7 @@
+{
+  "name": "petropolis-work-engine-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static demo site for the Petropolis Work Engine Phase 1 model. No build step.",
+  "type": "module"
+}

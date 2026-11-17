@@ -1,0 +1,35 @@
+{
+  "_metadata": { "major_version": 1, "minor_version": 1 },
+  "display_information": {
+    "name": "Work Engine",
+    "description": "Your next task, on your phone.",
+    "long_description": "Petropolis Work Engine turns Goose reservations and daily checklists into prioritized tasks. Each team member gets the next task they are qualified for, with steps, SOP links and outcome buttons. Clock in, breaks and clock out live on the Home tab.",
+    "background_color": "#16233a"
+  },
+  "features": {
+    "app_home": {
+      "home_tab_enabled": true,
+      "messages_tab_enabled": true,
+      "messages_tab_read_only_enabled": true
+    },
+    "bot_user": { "display_name": "Work Engine", "always_online": true }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": ["chat:write", "im:write", "users:read", "files:read"]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "request_url": "https://API_ID.execute-api.us-east-1.amazonaws.com/slack/events",
+      "bot_events": ["app_home_opened"]
+    },
+    "interactivity": {
+      "is_enabled": true,
+      "request_url": "https://API_ID.execute-api.us-east-1.amazonaws.com/slack/interactions"
+    },
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}

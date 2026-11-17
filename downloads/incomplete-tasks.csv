@@ -1,0 +1,3 @@
+task_id,title,status,reason,by,at
+play:gs_res_10422:0,Play session: Otis,cancelled,Pet checked out,Goose,10:00 AM
+clean:checkout:A13,Deep clean suite A13 after check-out,blocked,Dog still in suite: owner running late,Jonah,10:37 AM

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Petropolis Work Engine: Phase 1 working model</title>
+<meta name="description" content="A working model of the Petropolis Work Engine: Goose reservations become prioritized tasks delivered in Slack, on AWS.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/lexend-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the demo</a>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="#main">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M8 11.5 11 21l3-7 3 7 3-9.5M22 12h3.5M22 16.5h3.5M22 21h3.5" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><strong>Petropolis Work Engine</strong><span class="sub">Phase 1 working model</span></span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="#day">Pilot day</a>
+      <a href="#cards">Slack cards</a>
+      <a href="#lab">Failure lab</a>
+      <a href="#build">AWS build</a>
+      <a href="#measured">Measured</a>
+    </nav>
+    <p class="by">Prepared by Santiago</p>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <h1 id="hero-title">Reservations in. The next right task out, on every phone.</h1>
+    <p class="lead">A working model of Phase 1 for one pilot location. Goose-shaped reservations become a day of tasks, rule-based priority decides what matters next, and each team member gets the next task they’re qualified for as a Slack card. The board below runs the same engine code the AWS Lambdas run.</p>
+    <ul class="proof" id="proof" aria-label="What was measured">
+      <li><span data-r="tests">69 tests pass</span></li>
+      <li><span data-r="mutation">38 of 38 planted bugs caught</span></li>
+      <li><span data-r="slack">2,012 Slack payloads inside Block Kit limits</span></li>
+      <li><span data-r="cost">About $2 a month on AWS at pilot volume</span></li>
+    </ul>
+  </section>
+
+  <!-- ================= ASSET 1: PILOT DAY ================= -->
+  <section id="day" class="band" aria-labelledby="day-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="day-title">A pilot day, minute by minute</h2>
+        <p>62 reservations (one booked the same morning), 8 team members, 328 tasks. Drag the clock, switch the scenario, and watch who gets what and why. Every decision comes from the priority engine you’d be buying.</p>
+      </div>
+
+      <div class="controls" role="group" aria-label="Simulation controls">
+        <fieldset class="seg">
+          <legend>Day</legend>
+          <label><input type="radio" name="scenario" value="normal" checked><span>Normal day</span></label>
+          <label><input type="radio" name="scenario" value="callout"><span>Sam calls out sick</span></label>
+        </fieldset>
+        <fieldset class="seg">
+          <legend>Who picks the next task</legend>
+          <label><input type="radio" name="policy" value="priority" checked><span>Work Engine priority</span></label>
+          <label><input type="radio" name="policy" value="earliest"><span>Earliest due first</span></label>
+        </fieldset>
+        <div class="clock-ctl">
+          <button type="button" id="play" class="btn" aria-pressed="false">Play</button>
+          <label class="time-label" for="time">Time <output id="time-out" for="time">7:05 AM</output></label>
+          <input type="range" id="time" min="360" max="1230" step="1" value="425">
+        </div>
+      </div>
+
+      <div class="board">
+        <div class="panel queue-panel">
+          <div class="panel-head">
+            <h3>Waiting now <span class="count" id="q-count"></span></h3>
+            <p class="hint" id="q-hint">Highest score goes to the next free person who has the skills. Open a row to see the score and change it as a manager.</p>
+          </div>
+          <ol class="queue" id="queue" aria-live="polite"></ol>
+          <div class="legend" aria-label="Score parts">
+            <span><i class="sw imp"></i>Importance</span>
+            <span><i class="sw soon"></i>How soon</span>
+            <span><i class="sw late"></i>Overdue</span>
+            <span><i class="sw care"></i>Pet welfare</span>
+            <span><i class="sw mgr"></i>Manager</span>
+          </div>
+        </div>
+
+        <div class="panel floor-panel">
+          <div class="panel-head">
+            <h3>The floor</h3>
+            <p class="hint">Pick a person to see their phone.</p>
+          </div>
+          <ul class="floor" id="floor"></ul>
+        </div>
+
+        <div class="panel phone-panel">
+          <div class="phone-tabs" role="tablist" aria-label="Phone view">
+            <button role="tab" id="tab-dm" aria-selected="true" aria-controls="phone-body">Messages</button>
+            <button role="tab" id="tab-home" aria-selected="false" aria-controls="phone-body">Home tab</button>
+          </div>
+          <div class="phone" id="phone-frame">
+            <div class="phone-bar"><span id="phone-who">Maya</span><span id="phone-time">7:05</span></div>
+            <div class="phone-body" id="phone-body" role="tabpanel"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="below">
+        <div class="panel">
+          <h3>What just happened</h3>
+          <ol class="feed" id="feed"></ol>
+        </div>
+        <div class="panel">
+          <h3>5:00 AM coverage check</h3>
+          <p class="hint">Posted to #floor-leads before the doors open: work nobody on the rota can do in time.</p>
+          <ul class="gaps" id="gaps"></ul>
+        </div>
+      </div>
+
+      <div class="panel results">
+        <div class="results-head">
+          <h3>How the day ended</h3>
+          <p id="verdict" class="verdict"></p>
+        </div>
+        <div class="table-scroll">
+          <table id="results-table">
+            <caption class="sr-only">Day results for both ways of choosing the next task</caption>
+            <thead><tr><th scope="col">Measure</th><th scope="col">Work Engine priority</th><th scope="col">Earliest due first</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <details class="rules">
+          <summary>Change the rules and replay the day</summary>
+          <p class="hint">These are the weights a manager edits in the admin. Each change replays both scenarios with the real engine.</p>
+          <div class="rule-grid">
+            <label>Pet-welfare boost <output id="r-welfare-out">0.5</output>
+              <input type="range" id="r-welfare" min="0" max="1.5" step="0.1" value="0.5"></label>
+            <label>Urgency builds over <output id="r-window-out">60 min</output>
+              <input type="range" id="r-window" min="15" max="120" step="5" value="60"></label>
+            <label>Overdue points per minute <output id="r-overdue-out">2</output>
+              <input type="range" id="r-overdue" min="1" max="4" step="0.5" value="2"></label>
+          </div>
+          <button type="button" class="btn ghost" id="r-reset">Reset rules and manager changes</button>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ASSET 2: SLACK CARDS ================= -->
+  <section id="cards" class="band alt" aria-labelledby="cards-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="cards-title">The Slack cards, tap by tap</h2>
+        <p>Every card is real Block Kit JSON built by the engine. Tap the buttons: Start, Done, Can’t complete, Add photo, Need help, clock in and breaks. Copy any payload into Slack’s Block Kit Builder to see it in real Slack.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="panel card-list">
+          <h3 id="card-list-title">Pick a card</h3>
+          <ul id="card-list" aria-labelledby="card-list-title"></ul>
+        </div>
+        <div class="panel">
+          <div class="phone tall">
+            <div class="phone-bar"><span id="card-surface">Messages</span><span>Work Engine</span></div>
+            <div class="phone-body" id="card-phone"></div>
+          </div>
+          <p class="sends" id="card-sends" aria-live="polite">Tap a button to see what Slack sends to AWS.</p>
+        </div>
+        <div class="panel json-panel">
+          <div class="json-head">
+            <h3>Payload</h3>
+            <button type="button" class="btn ghost small" id="copy-json">Copy JSON</button>
+          </div>
+          <ul class="checks" id="card-checks"></ul>
+          <pre class="json" tabindex="0" aria-label="Block Kit JSON"><code id="card-json"></code></pre>
+          <p class="hint">Block Kit Builder: <a href="https://app.slack.com/block-kit-builder" rel="noopener">app.slack.com/block-kit-builder</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ASSET 3: FAILURE LAB ================= -->
+  <section id="lab" class="band" aria-labelledby="lab-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="lab-title">Failure lab</h2>
+        <p>The pilot will meet weak signal, double taps, missed webhooks and forged requests. Each experiment below runs the real code from the kit in your browser.</p>
+      </div>
+      <div class="lab-grid" id="lab-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= ASSET 4: AWS BUILD ================= -->
+  <section id="build" class="band alt" aria-labelledby="build-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="build-title">The AWS build, ready for your account</h2>
+        <p>One SAM template creates everything in the Petropolis AWS account. It validates clean, and the Lambda code is in the kit with its tests.</p>
+      </div>
+
+      <div class="arch" aria-label="How the pieces connect">
+        <div class="lane">
+          <h3>Comes in</h3>
+          <ul>
+            <li><strong>Goose</strong> webhooks: bookings, changes, check-in and check-out started</li>
+            <li><strong>Goose poll</strong> every 2 minutes, in case a webhook is missed</li>
+            <li><strong>Slack</strong> taps from phones, signed and checked</li>
+            <li><strong>Managers</strong> sign in to the admin (Cognito)</li>
+            <li><strong>Clock</strong>: 5:00 AM day plan, a tick every minute</li>
+          </ul>
+        </div>
+        <div class="lane">
+          <h3>Decides</h3>
+          <ul>
+            <li><strong>Slack ingress</strong> answers inside 3 seconds and queues the work</li>
+            <li><strong>Worker</strong> applies taps, updates cards, sends the next task</li>
+            <li><strong>Tick</strong> re-scores the queue and escalates overdue pet care</li>
+            <li><strong>Day planner</strong> builds tasks and posts the coverage check</li>
+            <li><strong>Offline list</strong> page and sync for weak signal</li>
+          </ul>
+        </div>
+        <div class="lane">
+          <h3>Keeps</h3>
+          <ul>
+            <li><strong>DynamoDB</strong>: tasks, shifts, staff, reservations; point-in-time recovery plus a daily backup</li>
+            <li><strong>S3</strong>: task photos, copied out of Slack</li>
+            <li><strong>Secrets Manager</strong>: Slack and Goose keys</li>
+            <li><strong>CloudWatch alarms</strong> email you when something breaks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="build-grid">
+        <div class="panel">
+          <h3>The four records you asked for</h3>
+          <div class="table-scroll">
+            <table class="records">
+              <thead><tr><th scope="col">Record</th><th scope="col">Stored as</th><th scope="col">From the simulated day</th></tr></thead>
+              <tbody id="records-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Running cost at pilot volume</h3>
+          <p class="hint">AWS list prices, US East, no free tier applied. Volumes come from the simulated day.</p>
+          <div class="table-scroll">
+            <table class="cost">
+              <thead><tr><th scope="col">Item</th><th scope="col">Assumption</th><th scope="col" class="num">Per month</th></tr></thead>
+              <tbody id="cost-body"></tbody>
+              <tfoot><tr><th scope="row" colspan="2">Total</th><td class="num" id="cost-total"></td></tr></tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel downloads">
+        <h3>Downloads</h3>
+        <ul>
+          <li><a href="downloads/template.yaml" download>template.yaml</a> <span id="dl-template">SAM template</span></li>
+          <li><a href="downloads/slack-manifest.json" download>slack-manifest.json</a> Slack app manifest: Home tab, interactivity, 4 bot scopes</li>
+          <li><a href="downloads/completed-tasks.csv" download>completed-tasks.csv</a> who did what, started and finished</li>
+          <li><a href="downloads/incomplete-tasks.csv" download>incomplete-tasks.csv</a> blocked and cancelled, with reasons</li>
+          <li><a href="downloads/shifts.csv" download>shifts.csv</a> clock in, break, clock out</li>
+          <li><a href="downloads/qualifications.csv" download>qualifications.csv</a> what each person may do</li>
+        </ul>
+      </div>
+
+      <div class="panel decisions">
+        <h3>Facts that shape the build</h3>
+        <ol id="decisions"></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MEASURED ================= -->
+  <section id="measured" class="band" aria-labelledby="measured-title">
+    <div class="wrap two">
+      <div>
+        <h2 id="measured-title">Measured</h2>
+        <ul class="plain" id="measured-list"></ul>
+      </div>
+      <div>
+        <h2>Not measured</h2>
+        <ul class="plain" id="not-measured-list">
+          <li>Not connected to a real Slack workspace, Goose account or AWS account. The template is validated, not deployed.</li>
+          <li>Goose’s real payload and webhook names are not public; the sample feed is Goose-shaped and invented.</li>
+          <li>Lambda cold starts and real network time to Slack. The ack timing above is local Node.</li>
+          <li>The offline page on real phones with real dead zones.</li>
+          <li>Staff, shifts, task durations and incidents in the sample day are invented. Results show how the rules behave, not how Petropolis will perform.</li>
+          <li>Costs are estimates from list prices and stated volumes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Prepared by Santiago for Petropolis. All pets, people and reservations shown are invented sample data.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>

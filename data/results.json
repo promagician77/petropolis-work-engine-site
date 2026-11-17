@@ -1,0 +1,869 @@
+{
+  "generatedAt": "2026-11-17T21:12:00.506Z",
+  "node": "v22.23.4",
+  "tests": {
+    "total": 69,
+    "pass": 69,
+    "fail": 0
+  },
+  "mutation": {
+    "planted": 38,
+    "caught": 38
+  },
+  "template": {
+    "samResources": 26,
+    "expandedResources": 50,
+    "findings": 0,
+    "types": {
+      "AWS::DynamoDB::Table": 1,
+      "AWS::S3::Bucket": 1,
+      "AWS::SecretsManager::Secret": 1,
+      "AWS::SQS::Queue": 2,
+      "AWS::Cognito::UserPool": 1,
+      "AWS::Cognito::UserPoolClient": 1,
+      "AWS::Cognito::UserPoolGroup": 1,
+      "AWS::SNS::Topic": 1,
+      "AWS::CloudWatch::Alarm": 4,
+      "AWS::Backup::BackupVault": 1,
+      "AWS::Backup::BackupPlan": 1,
+      "AWS::IAM::Role": 12,
+      "AWS::Backup::BackupSelection": 1,
+      "AWS::Lambda::Function": 8,
+      "AWS::Lambda::Permission": 8,
+      "AWS::Lambda::EventSourceMapping": 1,
+      "AWS::Scheduler::Schedule": 3,
+      "AWS::ApiGatewayV2::Api": 1,
+      "AWS::ApiGatewayV2::Stage": 1
+    },
+    "plainCfnLintExit": 0,
+    "cfnLint": "1.60.1",
+    "samTranslator": "1.117.0"
+  },
+  "sim": {
+    "runs": {
+      "normal_priority": {
+        "tasks": 328,
+        "cancelled": 1,
+        "done": 328,
+        "missed": 0,
+        "welfareOnTimePct": 97,
+        "petCareOnTimePct": 99.2,
+        "petCareEvents": 714,
+        "petMinutesLate": 855,
+        "checkoutWaitMax": 7,
+        "checkoutWaitMedian": 0,
+        "medsOnTimePct": 100,
+        "allOnTimePct": 95.4,
+        "escalations": 14,
+        "lobbyWaitMedian": 0,
+        "lobbyWaitMax": 30,
+        "helpResponse": [
+          3
+        ],
+        "byType": {
+          "meds": {
+            "count": 21,
+            "onTime": 21,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 0
+          },
+          "assist": {
+            "count": 1,
+            "onTime": 1,
+            "missed": 0,
+            "medianLate": 1,
+            "p90Late": 1,
+            "maxLate": 1
+          },
+          "feeding": {
+            "count": 15,
+            "onTime": 15,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 10
+          },
+          "water": {
+            "count": 58,
+            "onTime": 58,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 18
+          },
+          "lobby": {
+            "count": 59,
+            "onTime": 54,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 3,
+            "maxLate": 20
+          },
+          "potty": {
+            "count": 104,
+            "onTime": 98,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 18,
+            "maxLate": 45
+          },
+          "checklist": {
+            "count": 27,
+            "onTime": 26,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 25
+          },
+          "play": {
+            "count": 27,
+            "onTime": 25,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 22
+          },
+          "cleaning": {
+            "count": 16,
+            "onTime": 15,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 180
+          }
+        },
+        "staff": [
+          {
+            "id": "s1",
+            "name": "Maya",
+            "done": 32,
+            "busy": 225,
+            "utilization": 47,
+            "overtime": 0
+          },
+          {
+            "id": "s2",
+            "name": "Jonah",
+            "done": 40,
+            "busy": 262,
+            "utilization": 55,
+            "overtime": 0
+          },
+          {
+            "id": "s3",
+            "name": "Sam",
+            "done": 46,
+            "busy": 262,
+            "utilization": 54,
+            "overtime": 1
+          },
+          {
+            "id": "s4",
+            "name": "Priya",
+            "done": 43,
+            "busy": 395,
+            "utilization": 81,
+            "overtime": 10
+          },
+          {
+            "id": "s5",
+            "name": "Leo",
+            "done": 38,
+            "busy": 290,
+            "utilization": 59,
+            "overtime": 8
+          },
+          {
+            "id": "s6",
+            "name": "Tess",
+            "done": 55,
+            "busy": 430,
+            "utilization": 89,
+            "overtime": 2
+          },
+          {
+            "id": "s7",
+            "name": "Omar",
+            "done": 37,
+            "busy": 276,
+            "utilization": 58,
+            "overtime": 0
+          },
+          {
+            "id": "s8",
+            "name": "Rosa",
+            "done": 37,
+            "busy": 278,
+            "utilization": 62,
+            "overtime": 0
+          }
+        ]
+      },
+      "normal_earliest": {
+        "tasks": 328,
+        "cancelled": 1,
+        "done": 328,
+        "missed": 0,
+        "welfareOnTimePct": 99.5,
+        "petCareOnTimePct": 99.3,
+        "petCareEvents": 714,
+        "petMinutesLate": 768,
+        "checkoutWaitMax": 13,
+        "checkoutWaitMedian": 0,
+        "medsOnTimePct": 100,
+        "allOnTimePct": 98.5,
+        "escalations": 13,
+        "lobbyWaitMedian": 0,
+        "lobbyWaitMax": 15,
+        "helpResponse": [
+          3
+        ],
+        "byType": {
+          "meds": {
+            "count": 21,
+            "onTime": 21,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 4
+          },
+          "assist": {
+            "count": 1,
+            "onTime": 1,
+            "missed": 0,
+            "medianLate": 1,
+            "p90Late": 1,
+            "maxLate": 1
+          },
+          "feeding": {
+            "count": 15,
+            "onTime": 14,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 16,
+            "maxLate": 37
+          },
+          "water": {
+            "count": 58,
+            "onTime": 58,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 0
+          },
+          "lobby": {
+            "count": 59,
+            "onTime": 57,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 4,
+            "maxLate": 8
+          },
+          "potty": {
+            "count": 104,
+            "onTime": 104,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 13,
+            "maxLate": 30
+          },
+          "checklist": {
+            "count": 27,
+            "onTime": 27,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 4
+          },
+          "play": {
+            "count": 27,
+            "onTime": 26,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 10
+          },
+          "cleaning": {
+            "count": 16,
+            "onTime": 15,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 180
+          }
+        },
+        "staff": [
+          {
+            "id": "s1",
+            "name": "Maya",
+            "done": 31,
+            "busy": 218,
+            "utilization": 45,
+            "overtime": 0
+          },
+          {
+            "id": "s2",
+            "name": "Jonah",
+            "done": 38,
+            "busy": 253,
+            "utilization": 53,
+            "overtime": 0
+          },
+          {
+            "id": "s3",
+            "name": "Sam",
+            "done": 49,
+            "busy": 260,
+            "utilization": 54,
+            "overtime": 2
+          },
+          {
+            "id": "s4",
+            "name": "Priya",
+            "done": 42,
+            "busy": 417,
+            "utilization": 85,
+            "overtime": 11
+          },
+          {
+            "id": "s5",
+            "name": "Leo",
+            "done": 41,
+            "busy": 303,
+            "utilization": 62,
+            "overtime": 10
+          },
+          {
+            "id": "s6",
+            "name": "Tess",
+            "done": 53,
+            "busy": 431,
+            "utilization": 90,
+            "overtime": 0
+          },
+          {
+            "id": "s7",
+            "name": "Omar",
+            "done": 38,
+            "busy": 275,
+            "utilization": 57,
+            "overtime": 0
+          },
+          {
+            "id": "s8",
+            "name": "Rosa",
+            "done": 36,
+            "busy": 261,
+            "utilization": 58,
+            "overtime": 0
+          }
+        ]
+      },
+      "callout_priority": {
+        "tasks": 328,
+        "cancelled": 1,
+        "done": 328,
+        "missed": 0,
+        "welfareOnTimePct": 95,
+        "petCareOnTimePct": 98,
+        "petCareEvents": 714,
+        "petMinutesLate": 1914,
+        "checkoutWaitMax": 7,
+        "checkoutWaitMedian": 0,
+        "medsOnTimePct": 100,
+        "allOnTimePct": 91.5,
+        "escalations": 21,
+        "lobbyWaitMedian": 4,
+        "lobbyWaitMax": 55,
+        "helpResponse": [
+          6
+        ],
+        "byType": {
+          "meds": {
+            "count": 21,
+            "onTime": 21,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 6
+          },
+          "assist": {
+            "count": 1,
+            "onTime": 1,
+            "missed": 0,
+            "medianLate": 4,
+            "p90Late": 4,
+            "maxLate": 4
+          },
+          "feeding": {
+            "count": 15,
+            "onTime": 15,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 13,
+            "maxLate": 30
+          },
+          "water": {
+            "count": 58,
+            "onTime": 57,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 11,
+            "maxLate": 42
+          },
+          "lobby": {
+            "count": 59,
+            "onTime": 47,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 14,
+            "maxLate": 45
+          },
+          "potty": {
+            "count": 104,
+            "onTime": 95,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 25,
+            "maxLate": 74
+          },
+          "checklist": {
+            "count": 27,
+            "onTime": 26,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 37
+          },
+          "play": {
+            "count": 27,
+            "onTime": 24,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 10,
+            "maxLate": 41
+          },
+          "cleaning": {
+            "count": 16,
+            "onTime": 14,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 35,
+            "maxLate": 180
+          }
+        },
+        "staff": [
+          {
+            "id": "s1",
+            "name": "Maya",
+            "done": 44,
+            "busy": 283,
+            "utilization": 59,
+            "overtime": 0
+          },
+          {
+            "id": "s2",
+            "name": "Jonah",
+            "done": 45,
+            "busy": 302,
+            "utilization": 63,
+            "overtime": 0
+          },
+          {
+            "id": "s4",
+            "name": "Priya",
+            "done": 50,
+            "busy": 431,
+            "utilization": 88,
+            "overtime": 8
+          },
+          {
+            "id": "s5",
+            "name": "Leo",
+            "done": 51,
+            "busy": 356,
+            "utilization": 73,
+            "overtime": 9
+          },
+          {
+            "id": "s6",
+            "name": "Tess",
+            "done": 51,
+            "busy": 453,
+            "utilization": 94,
+            "overtime": 2
+          },
+          {
+            "id": "s7",
+            "name": "Omar",
+            "done": 44,
+            "busy": 316,
+            "utilization": 66,
+            "overtime": 0
+          },
+          {
+            "id": "s8",
+            "name": "Rosa",
+            "done": 43,
+            "busy": 277,
+            "utilization": 62,
+            "overtime": 0
+          }
+        ]
+      },
+      "callout_earliest": {
+        "tasks": 328,
+        "cancelled": 1,
+        "done": 328,
+        "missed": 0,
+        "welfareOnTimePct": 95.5,
+        "petCareOnTimePct": 98.2,
+        "petCareEvents": 714,
+        "petMinutesLate": 1771,
+        "checkoutWaitMax": 14,
+        "checkoutWaitMedian": 1,
+        "medsOnTimePct": 95.2,
+        "allOnTimePct": 92.7,
+        "escalations": 23,
+        "lobbyWaitMedian": 8,
+        "lobbyWaitMax": 47,
+        "helpResponse": [
+          2
+        ],
+        "byType": {
+          "meds": {
+            "count": 21,
+            "onTime": 20,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 12,
+            "maxLate": 16
+          },
+          "assist": {
+            "count": 1,
+            "onTime": 1,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 0
+          },
+          "feeding": {
+            "count": 15,
+            "onTime": 14,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 27,
+            "maxLate": 48
+          },
+          "water": {
+            "count": 58,
+            "onTime": 58,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 5,
+            "maxLate": 17
+          },
+          "lobby": {
+            "count": 59,
+            "onTime": 47,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 16,
+            "maxLate": 37
+          },
+          "potty": {
+            "count": 104,
+            "onTime": 97,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 19,
+            "maxLate": 65
+          },
+          "checklist": {
+            "count": 27,
+            "onTime": 27,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 6,
+            "maxLate": 10
+          },
+          "play": {
+            "count": 27,
+            "onTime": 25,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 0,
+            "maxLate": 28
+          },
+          "cleaning": {
+            "count": 16,
+            "onTime": 15,
+            "missed": 0,
+            "medianLate": 0,
+            "p90Late": 2,
+            "maxLate": 180
+          }
+        },
+        "staff": [
+          {
+            "id": "s1",
+            "name": "Maya",
+            "done": 44,
+            "busy": 291,
+            "utilization": 61,
+            "overtime": 0
+          },
+          {
+            "id": "s2",
+            "name": "Jonah",
+            "done": 47,
+            "busy": 312,
+            "utilization": 65,
+            "overtime": 0
+          },
+          {
+            "id": "s4",
+            "name": "Priya",
+            "done": 48,
+            "busy": 443,
+            "utilization": 91,
+            "overtime": 8
+          },
+          {
+            "id": "s5",
+            "name": "Leo",
+            "done": 51,
+            "busy": 351,
+            "utilization": 71,
+            "overtime": 15
+          },
+          {
+            "id": "s6",
+            "name": "Tess",
+            "done": 54,
+            "busy": 445,
+            "utilization": 93,
+            "overtime": 0
+          },
+          {
+            "id": "s7",
+            "name": "Omar",
+            "done": 42,
+            "busy": 295,
+            "utilization": 61,
+            "overtime": 0
+          },
+          {
+            "id": "s8",
+            "name": "Rosa",
+            "done": 42,
+            "busy": 281,
+            "utilization": 62,
+            "overtime": 0
+          }
+        ]
+      }
+    },
+    "msPerDay": 22.68,
+    "tasksPerDay": 328,
+    "reservations": 62,
+    "staff": 8
+  },
+  "coverage": {
+    "normal": [
+      "Litter boxes: cat condos (8:30 AM) needs cleaning + cat-care; first qualified person is Omar at 11:30 AM.",
+      "Play session: Otis (10:00 AM) needs playgroup + large-dog; first qualified person is Tess at 11:00 AM."
+    ],
+    "callout": [
+      "Check-in: bring Ivy from the lobby to Big Yard (7:29 AM) needs lobby + large-dog; first qualified person is Leo at 8:00 AM.",
+      "Check-in: bring Pearl from the lobby to Big Yard (7:38 AM) needs lobby + large-dog; first qualified person is Leo at 8:00 AM.",
+      "Check-in: bring Sadie from the lobby to B5 (7:50 AM) needs lobby + large-dog; first qualified person is Leo at 8:00 AM.",
+      "Check-in: bring Stella from the lobby to Big Yard (7:53 AM) needs lobby + large-dog; first qualified person is Leo at 8:00 AM.",
+      "Litter boxes: cat condos (8:30 AM) needs cleaning + cat-care; first qualified person is Omar at 11:30 AM.",
+      "Play session: Otis (10:00 AM) needs playgroup + large-dog; first qualified person is Tess at 11:00 AM."
+    ]
+  },
+  "slack": {
+    "payloads": 2012,
+    "checks": 49503,
+    "maxBlocks": 7,
+    "failures": 0
+  },
+  "ack": {
+    "runs": 500,
+    "accepted": 500,
+    "enqueued": 500,
+    "p50": 0.04,
+    "p99": 0.23,
+    "max": 9.79
+  },
+  "cost": {
+    "total": 2,
+    "lines": [
+      {
+        "item": "Lambda requests",
+        "assumption": "132k calls/month",
+        "monthly": 0.03
+      },
+      {
+        "item": "Lambda compute (arm64, 256 MB)",
+        "assumption": "8810 GB-seconds/month",
+        "monthly": 0.12
+      },
+      {
+        "item": "API Gateway (HTTP API)",
+        "assumption": "37k requests/month",
+        "monthly": 0.04
+      },
+      {
+        "item": "DynamoDB writes",
+        "assumption": "79k writes/month",
+        "monthly": 0.05
+      },
+      {
+        "item": "DynamoDB reads",
+        "assumption": "783k read units/month",
+        "monthly": 0.1
+      },
+      {
+        "item": "DynamoDB storage + point-in-time recovery",
+        "assumption": "0.17 GB after a year",
+        "monthly": 0.08
+      },
+      {
+        "item": "EventBridge Scheduler",
+        "assumption": "65k runs/month (tick + poll)",
+        "monthly": 0.06
+      },
+      {
+        "item": "SQS queue",
+        "assumption": "91k requests/month",
+        "monthly": 0.04
+      },
+      {
+        "item": "S3 photos",
+        "assumption": "25.9 GB after a year (15% of tasks, 1.5 MB each)",
+        "monthly": 0.6
+      },
+      {
+        "item": "CloudWatch logs",
+        "assumption": "0.15 GB/month",
+        "monthly": 0.08
+      },
+      {
+        "item": "CloudWatch alarms",
+        "assumption": "4 alarms",
+        "monthly": 0.4
+      },
+      {
+        "item": "Secrets Manager",
+        "assumption": "1 secret (Slack + Goose keys)",
+        "monthly": 0.4
+      }
+    ],
+    "sources": [
+      "Lambda $0.20 per million requests; arm64 $0.0000133334 per GB-second",
+      "API Gateway HTTP APIs $1.00 per million requests (first 300 million)",
+      "DynamoDB on-demand $0.625 per million writes, $0.125 per million reads, $0.25 per GB-month; PITR $0.20 per GB-month",
+      "EventBridge Scheduler $1.00 per million invocations",
+      "SQS standard $0.40 per million requests",
+      "S3 Standard $0.023 per GB-month; PUT $0.005 per 1,000",
+      "CloudWatch Logs ingestion $0.50 per GB; standard alarms $0.10 each",
+      "Secrets Manager $0.40 per secret per month"
+    ]
+  },
+  "keyDesign": [
+    {
+      "record": "Task (open or closed)",
+      "pk": "LOC#pilot#DAY#2026-11-18",
+      "sk": "TASK#<task id>",
+      "gsi1": "LOC#pilot#OPEN / <due>#<task id> (open tasks only)"
+    },
+    {
+      "record": "Employee + qualifications",
+      "pk": "STAFF#<id>",
+      "sk": "PROFILE",
+      "gsi1": "—"
+    },
+    {
+      "record": "Shift event (clock in/out, break)",
+      "pk": "STAFF#<id>",
+      "sk": "SHIFT#2026-11-18#<time>#<event>",
+      "gsi1": "—"
+    },
+    {
+      "record": "Goose reservation (latest version)",
+      "pk": "RES#<goose id>",
+      "sk": "CURRENT",
+      "gsi1": "—"
+    },
+    {
+      "record": "Action idempotency key (7-day TTL)",
+      "pk": "ACTION#<action id>",
+      "sk": "ACTION",
+      "gsi1": "—"
+    },
+    {
+      "record": "Task template / checklist item",
+      "pk": "LOC#pilot",
+      "sk": "TEMPLATE#<id>",
+      "gsi1": "—"
+    }
+  ],
+  "sampleItems": {
+    "completedTask": {
+      "PK": "LOC#pilot#DAY#2026-11-18",
+      "SK": "TASK#meds:gs_res_10404:0:480",
+      "type": "meds",
+      "title": "Carprofen 75 mg for Pepper",
+      "status": "done",
+      "dueAt": 480,
+      "startedAt": 450,
+      "doneAt": 454,
+      "doneBy": "s4",
+      "outcome": "Given",
+      "score": 92.5,
+      "reason": "Meds · due 8:00 AM · pet welfare",
+      "version": 3
+    },
+    "blockedTask": {
+      "PK": "LOC#pilot#DAY#2026-11-18",
+      "SK": "TASK#clean:checkout:A13",
+      "status": "done",
+      "history": [
+        {
+          "at": 637,
+          "status": "blocked",
+          "by": "s2",
+          "reason": "Dog still in suite: owner running late"
+        }
+      ],
+      "photos": [
+        "s3://petropolis-work-engine-photos/2026/11/18/<task>/<file>.jpg"
+      ]
+    },
+    "shiftEvent": {
+      "PK": "STAFF#s1",
+      "SK": "SHIFT#2026-11-18#0360#clock_in",
+      "at": 360,
+      "source": "slack_home",
+      "offline": false
+    },
+    "staffProfile": {
+      "PK": "STAFF#s1",
+      "SK": "PROFILE",
+      "name": "Maya",
+      "slackUserId": "U0XXXXXXX",
+      "quals": [
+        "care",
+        "meds",
+        "opening",
+        "lobby",
+        "cleaning"
+      ],
+      "active": true
+    }
+  }
+}
